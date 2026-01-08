@@ -1,13 +1,7 @@
 {
   "version": 2,
   "name": "neurolearn-landing",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
+    "routes": [
     {
       "src": "/(.*)",
       "dest": "/$1"
