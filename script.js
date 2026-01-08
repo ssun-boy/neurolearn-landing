@@ -100,17 +100,24 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // Header background on scroll
+    // Header background on scroll & Hide scroll indicator
     let lastScroll = 0;
     const header = document.querySelector('.header');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
+        // Header shadow
         if (currentScroll > 100) {
             header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
         } else {
             header.style.boxShadow = 'none';
+        }
+
+        // Hide scroll indicator on scroll
+        if (currentScroll > 50 && scrollIndicator) {
+            scrollIndicator.classList.add('hidden');
         }
 
         lastScroll = currentScroll;
