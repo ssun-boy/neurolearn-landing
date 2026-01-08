@@ -88,7 +88,7 @@ npx http-server -p 8080
 <!-- <div class="video-placeholder"></div> -->
 ```
 
-### YouTube 영상 임베드
+### YouTube 영상 임베드 (배경)
 ```html
 <div class="video-background">
     <iframe
@@ -100,6 +100,29 @@ npx http-server -p 8080
     </iframe>
 </div>
 ```
+
+## 🎬 "영상으로 미리 만나보기" 섹션 설정
+
+메인 페이지에 유튜브 소개 영상 섹션이 추가되어 있습니다!
+
+### 유튜브 영상 ID 변경 방법
+
+1. `index.html` 파일 열기
+2. Line 83에서 `YOUR_VIDEO_ID` 부분 찾기
+3. 실제 유튜브 영상 ID로 교체
+
+**예시**:
+```html
+<!-- 현재 -->
+<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" ...>
+
+<!-- 변경 후 (예: https://youtu.be/dQw4w9WgXcQ 영상) -->
+<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" ...>
+```
+
+**유튜브 영상 ID 찾는 방법**:
+- 일반 URL: `https://www.youtube.com/watch?v=VIDEO_ID` → VIDEO_ID 부분 복사
+- 단축 URL: `https://youtu.be/VIDEO_ID` → VIDEO_ID 부분 복사
 
 ## 🛠️ 커스터마이징
 
