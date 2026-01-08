@@ -1,12 +1,6 @@
 {
   "version": 2,
   "name": "neurolearn-landing",
-    "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
