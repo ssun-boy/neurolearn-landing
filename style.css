@@ -631,6 +631,25 @@ body {
     color: var(--dark);
 }
 
+.modal-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+.modal-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
 /* ========================================
    Responsive Design
    ======================================== */
@@ -727,5 +746,10 @@ body {
 
     .modal-content {
         padding: 40px 30px;
+    }
+
+    .modal-button {
+        padding: 14px 32px;
+        font-size: 16px;
     }
 }
