@@ -38,7 +38,9 @@ function animateCounter(element, target, duration = 2000) {
 
     const timer = setInterval(() => {
         current += increment;
-        if (current >= target) {
+
+        // Check if we've reached the target (works for both positive and negative)
+        if ((increment > 0 && current >= target) || (increment < 0 && current <= target)) {
             element.textContent = target.toLocaleString();
             clearInterval(timer);
         } else {
