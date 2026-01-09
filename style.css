@@ -862,12 +862,102 @@ body {
     font-weight: 700;
     transition: var(--transition);
     box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 .modal-button:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(255, 107, 53, 0.4);
+}
+
+
+.email-address {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--neutral-bg);
+    padding: 16px 24px;
+    border-radius: 10px;
+    margin: 20px 0;
+    word-break: break-all;
+}
+
+.email-alternatives {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--border);
+}
+
+.alternatives-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.webmail-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.webmail-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.webmail-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.webmail-link.gmail {
+    background: #EA4335;
+    color: var(--white);
+}
+
+.webmail-link.gmail:hover {
+    background: #D33426;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 67, 53, 0.3);
+}
+
+.webmail-link.outlook {
+    background: #0078D4;
+    color: var(--white);
+}
+
+.webmail-link.outlook:hover {
+    background: #006ABC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+}
+
+.webmail-link.default {
+    background: var(--neutral-bg);
+    color: var(--dark);
+    border: 2px solid var(--border);
+}
+
+.webmail-link.default:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(49, 130, 246, 0.3);
 }
 
 /* ========================================
@@ -1045,5 +1135,20 @@ body {
     .modal-button {
         padding: 14px 32px;
         font-size: 16px;
+    }
+
+    .email-address {
+        font-size: 18px;
+        padding: 14px 20px;
+    }
+
+    .webmail-link {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .webmail-icon {
+        width: 18px;
+        height: 18px;
     }
 }

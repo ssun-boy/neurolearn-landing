@@ -13,11 +13,54 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
+// Contact Modal Functions
+function showContactModal() {
+    console.log('showContactModal called');
+    const contactModal = document.getElementById('contactModal');
+    if (contactModal) {
+        contactModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    } else {
+        console.error('contactModal element not found');
+    }
+}
+
+function closeContactModal() {
+    const contactModal = document.getElementById('contactModal');
+    contactModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Copy email to clipboard
+function copyEmail() {
+    const email = 'ai.nomad@neurolearn.co.kr';
+    navigator.clipboard.writeText(email).then(() => {
+        // Show success message
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = '✅ 복사되었습니다!';
+        button.style.background = 'var(--secondary)';
+
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = 'var(--accent)';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy email:', err);
+        alert('이메일 주소: ai.nomad@neurolearn.co.kr');
+    });
+}
+
 // Close modal when clicking outside
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
+    const contactModal = document.getElementById('contactModal');
+
     if (event.target === modal) {
         closeModal();
+    }
+    if (event.target === contactModal) {
+        closeContactModal();
     }
 }
 
@@ -25,6 +68,7 @@ window.onclick = function(event) {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeModal();
+        closeContactModal();
     }
 });
 
