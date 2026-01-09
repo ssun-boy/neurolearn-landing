@@ -523,9 +523,38 @@ body {
 }
 
 .process-arrow {
-    font-size: 32px;
-    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    color: var(--primary);
+    animation: arrowPulse 2s ease-in-out infinite;
+    transition: var(--transition);
+}
+
+.process-arrow svg {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 2px 8px rgba(49, 130, 246, 0.2));
+    animation: arrowMove 2s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes arrowMove {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(6px);
+    }
 }
 
 /* ========================================
@@ -874,6 +903,61 @@ body {
 }
 
 
+/* Contact Modal Specific Styles */
+#contactModal .modal-content {
+    max-width: 400px;
+    padding: 40px 30px;
+}
+
+#contactModal .modal-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+#contactModal h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+#contactModal p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+#contactModal .modal-info {
+    margin: 16px 0;
+}
+
+#contactModal .modal-button {
+    padding: 14px 32px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#contactModal .email-alternatives {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+#contactModal .alternatives-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+#contactModal .webmail-buttons {
+    gap: 10px;
+}
+
+#contactModal .webmail-link {
+    padding: 12px 20px;
+    font-size: 14px;
+}
+
+#contactModal .webmail-icon {
+    width: 18px;
+    height: 18px;
+}
+
 .email-address {
     font-size: 20px;
     font-weight: 700;
@@ -1020,7 +1104,22 @@ body {
     }
 
     .process-arrow {
+        margin: 20px 0;
+    }
+
+    .process-arrow svg {
+        width: 48px;
+        height: 48px;
         transform: rotate(90deg);
+    }
+
+    @keyframes arrowMove {
+        0%, 100% {
+            transform: translateY(0) rotate(90deg);
+        }
+        50% {
+            transform: translateY(6px) rotate(90deg);
+        }
     }
 
     .stats-title {
@@ -1132,9 +1231,31 @@ body {
         padding: 40px 30px;
     }
 
+    #contactModal .modal-content {
+        padding: 30px 24px;
+        max-width: 90%;
+    }
+
+    #contactModal .modal-icon {
+        font-size: 40px;
+    }
+
+    #contactModal h3 {
+        font-size: 22px;
+    }
+
+    #contactModal p {
+        font-size: 13px;
+    }
+
     .modal-button {
         padding: 14px 32px;
         font-size: 16px;
+    }
+
+    #contactModal .modal-button {
+        padding: 12px 28px;
+        font-size: 15px;
     }
 
     .email-address {
@@ -1142,13 +1263,13 @@ body {
         padding: 14px 20px;
     }
 
-    .webmail-link {
-        padding: 12px 20px;
-        font-size: 14px;
+    #contactModal .webmail-link {
+        padding: 10px 16px;
+        font-size: 13px;
     }
 
-    .webmail-icon {
-        width: 18px;
-        height: 18px;
+    #contactModal .webmail-icon {
+        width: 16px;
+        height: 16px;
     }
 }
