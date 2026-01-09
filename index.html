@@ -15,7 +15,15 @@
             <div class="logo">
                 <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn Logo" class="logo-image">
             </div>
-            <button class="cta-button-header" onclick="showModal()">학습 시작하기</button>
+            <nav class="header-nav">
+                <a href="mailto:ai.nomad@neurolearn.co.kr" class="contact-button">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                    </svg>
+                    Contact Us
+                </a>
+                <button class="cta-button-header" onclick="showModal()">학습 시작하기</button>
+            </nav>
         </div>
     </header>
 
@@ -53,17 +61,32 @@
         <div class="container">
             <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
+                    <div class="feature-icon brain">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.4 5.4 11 5.7V6C11 7.1 10.1 8 9 8C7.9 8 7 7.1 7 6V5.7C7.6 5.4 8 4.7 8 4C8 2.9 7.1 2 6 2C4.9 2 4 2.9 4 4C4 4.7 4.4 5.4 5 5.7V6C5 8.2 6.8 10 9 10C9.5 10 10 9.9 10.4 9.7C10.2 10.4 10 11.2 10 12C10 12.8 10.2 13.6 10.4 14.3C10 14.1 9.5 14 9 14C6.8 14 5 15.8 5 18V18.3C4.4 18.6 4 19.3 4 20C4 21.1 4.9 22 6 22C7.1 22 8 21.1 8 20C8 19.3 7.6 18.6 7 18.3V18C7 16.9 7.9 16 9 16C10.1 16 11 16.9 11 18V18.3C10.4 18.6 10 19.3 10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20C14 19.3 13.6 18.6 13 18.3V18C13 16.9 13.9 16 15 16C16.1 16 17 16.9 17 18V18.3C16.4 18.6 16 19.3 16 20C16 21.1 16.9 22 18 22C19.1 22 20 21.1 20 20C20 19.3 19.6 18.6 19 18.3V18C19 15.8 17.2 14 15 14C14.5 14 14 14.1 13.6 14.3C13.8 13.6 14 12.8 14 12C14 11.2 13.8 10.4 13.6 9.7C14 9.9 14.5 10 15 10C17.2 10 19 8.2 19 6V5.7C19.6 5.4 20 4.7 20 4C20 2.9 19.1 2 18 2C16.9 2 16 2.9 16 4C16 4.7 16.4 5.4 17 5.7V6C17 7.1 16.1 8 15 8C13.9 8 13 7.1 13 6V5.7C13.6 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>학습과학 기반</h3>
                     <p>망각곡선을 고려한<br>최적의 복습 타이밍</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
+                    <div class="feature-icon ai">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V6H20V18Z" fill="currentColor"/>
+                            <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
+                            <circle cx="16" cy="10" r="1.5" fill="currentColor"/>
+                            <path d="M12 17C14.21 17 16 15.21 16 13H8C8 15.21 9.79 17 12 17Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>AI 맞춤 학습</h3>
                     <p>개인별 학습 패턴을<br>분석하고 추천</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
+                    <div class="feature-icon chart">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 13H5V21H3V13ZM7 9H9V21H7V9ZM11 5H13V21H11V5ZM15 9H17V21H15V9ZM19 13H21V21H19V13Z" fill="currentColor"/>
+                        </svg>
+                    </div>
                     <h3>실시간 진도 추적</h3>
                     <p>이해도와 취약점을<br>한눈에 파악</p>
                 </div>
@@ -127,8 +150,8 @@
             <h2 class="stats-title">뉴로런의 약속</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number" data-count="-30">0</div>
-                    <div class="stat-suffix">%</div>
+                    <div class="stat-number" data-count="-20">0</div>
+                    <div class="stat-suffix">% 이상</div>
                     <div class="stat-label">학습시간 단축 목표</div>
                     <div class="stat-description">기존 학습법 대비</div>
                 </div>
