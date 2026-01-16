@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼 NeuroLearn">
     <meta name="keywords" content="자격증, 학습, AI, 뇌과학, 망각곡선, 맞춤학습">
     <title>NeuroLearn - AI와 뇌과학으로 합격하세요</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -19,27 +22,40 @@
             <nav class="header-nav">
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="테마 변경">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
                     </svg>
                     <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
                 <button class="contact-button" onclick="showContactModal()">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                        <path
+                            d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                            fill="currentColor" />
                     </svg>
                     Contact Us
                 </button>
-                <button class="cta-button-header" onclick="showModal()">학습 시작하기</button>
+
             </nav>
         </div>
     </header>
@@ -80,7 +96,9 @@
                 <div class="feature-card">
                     <div class="feature-icon brain">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.4 5.4 11 5.7V6C11 7.1 10.1 8 9 8C7.9 8 7 7.1 7 6V5.7C7.6 5.4 8 4.7 8 4C8 2.9 7.1 2 6 2C4.9 2 4 2.9 4 4C4 4.7 4.4 5.4 5 5.7V6C5 8.2 6.8 10 9 10C9.5 10 10 9.9 10.4 9.7C10.2 10.4 10 11.2 10 12C10 12.8 10.2 13.6 10.4 14.3C10 14.1 9.5 14 9 14C6.8 14 5 15.8 5 18V18.3C4.4 18.6 4 19.3 4 20C4 21.1 4.9 22 6 22C7.1 22 8 21.1 8 20C8 19.3 7.6 18.6 7 18.3V18C7 16.9 7.9 16 9 16C10.1 16 11 16.9 11 18V18.3C10.4 18.6 10 19.3 10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20C14 19.3 13.6 18.6 13 18.3V18C13 16.9 13.9 16 15 16C16.1 16 17 16.9 17 18V18.3C16.4 18.6 16 19.3 16 20C16 21.1 16.9 22 18 22C19.1 22 20 21.1 20 20C20 19.3 19.6 18.6 19 18.3V18C19 15.8 17.2 14 15 14C14.5 14 14 14.1 13.6 14.3C13.8 13.6 14 12.8 14 12C14 11.2 13.8 10.4 13.6 9.7C14 9.9 14.5 10 15 10C17.2 10 19 8.2 19 6V5.7C19.6 5.4 20 4.7 20 4C20 2.9 19.1 2 18 2C16.9 2 16 2.9 16 4C16 4.7 16.4 5.4 17 5.7V6C17 7.1 16.1 8 15 8C13.9 8 13 7.1 13 6V5.7C13.6 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2Z" fill="currentColor"/>
+                            <path
+                                d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.4 5.4 11 5.7V6C11 7.1 10.1 8 9 8C7.9 8 7 7.1 7 6V5.7C7.6 5.4 8 4.7 8 4C8 2.9 7.1 2 6 2C4.9 2 4 2.9 4 4C4 4.7 4.4 5.4 5 5.7V6C5 8.2 6.8 10 9 10C9.5 10 10 9.9 10.4 9.7C10.2 10.4 10 11.2 10 12C10 12.8 10.2 13.6 10.4 14.3C10 14.1 9.5 14 9 14C6.8 14 5 15.8 5 18V18.3C4.4 18.6 4 19.3 4 20C4 21.1 4.9 22 6 22C7.1 22 8 21.1 8 20C8 19.3 7.6 18.6 7 18.3V18C7 16.9 7.9 16 9 16C10.1 16 11 16.9 11 18V18.3C10.4 18.6 10 19.3 10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20C14 19.3 13.6 18.6 13 18.3V18C13 16.9 13.9 16 15 16C16.1 16 17 16.9 17 18V18.3C16.4 18.6 16 19.3 16 20C16 21.1 16.9 22 18 22C19.1 22 20 21.1 20 20C20 19.3 19.6 18.6 19 18.3V18C19 15.8 17.2 14 15 14C14.5 14 14 14.1 13.6 14.3C13.8 13.6 14 12.8 14 12C14 11.2 13.8 10.4 13.6 9.7C14 9.9 14.5 10 15 10C17.2 10 19 8.2 19 6V5.7C19.6 5.4 20 4.7 20 4C20 2.9 19.1 2 18 2C16.9 2 16 2.9 16 4C16 4.7 16.4 5.4 17 5.7V6C17 7.1 16.1 8 15 8C13.9 8 13 7.1 13 6V5.7C13.6 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2Z"
+                                fill="currentColor" />
                         </svg>
                     </div>
                     <h3>학습과학 기반</h3>
@@ -89,10 +107,12 @@
                 <div class="feature-card">
                     <div class="feature-icon ai">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V6H20V18Z" fill="currentColor"/>
-                            <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
-                            <circle cx="16" cy="10" r="1.5" fill="currentColor"/>
-                            <path d="M12 17C14.21 17 16 15.21 16 13H8C8 15.21 9.79 17 12 17Z" fill="currentColor"/>
+                            <path
+                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V6H20V18Z"
+                                fill="currentColor" />
+                            <circle cx="8" cy="10" r="1.5" fill="currentColor" />
+                            <circle cx="16" cy="10" r="1.5" fill="currentColor" />
+                            <path d="M12 17C14.21 17 16 15.21 16 13H8C8 15.21 9.79 17 12 17Z" fill="currentColor" />
                         </svg>
                     </div>
                     <h3>AI 맞춤 학습</h3>
@@ -101,7 +121,9 @@
                 <div class="feature-card">
                     <div class="feature-icon chart">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 13H5V21H3V13ZM7 9H9V21H7V9ZM11 5H13V21H11V5ZM15 9H17V21H15V9ZM19 13H21V21H19V13Z" fill="currentColor"/>
+                            <path
+                                d="M3 13H5V21H3V13ZM7 9H9V21H7V9ZM11 5H13V21H11V5ZM15 9H17V21H15V9ZM19 13H21V21H19V13Z"
+                                fill="currentColor" />
                         </svg>
                     </div>
                     <h3>실시간 진도 추적</h3>
@@ -118,10 +140,7 @@
             <p class="video-subtitle">NeuroLearn이 제공하는 혁신적인 학습 경험을 영상으로 확인하세요</p>
             <div class="video-wrapper">
                 <!-- 실제 유튜브 URL로 교체하세요: 현재는 테스트 영상입니다 -->
-                <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="NeuroLearn 소개 영상"
-                    frameborder="0"
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NeuroLearn 소개 영상" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
@@ -141,7 +160,8 @@
                 </div>
                 <div class="process-arrow">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="process-step">
@@ -151,7 +171,8 @@
                 </div>
                 <div class="process-arrow">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="process-step">
@@ -161,7 +182,8 @@
                 </div>
                 <div class="process-arrow">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <div class="process-step">
@@ -263,11 +285,12 @@
             <div class="modal-icon">🚀</div>
             <h3>곧 만나요!</h3>
             <p>NeuroLearn은 현재 베타 테스트를 준비 중입니다.<br>
-            더 나은 학습 경험을 위해 열심히 개발하고 있습니다.</p>
+                더 나은 학습 경험을 위해 열심히 개발하고 있습니다.</p>
             <div class="modal-info">
                 <p><strong>오픈 예정:</strong> 2026년 6월</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf90sI8ij0icbDs2gpheEBlH1IHZgIHFv7cpqXsetnYtzDISg/viewform?usp=header" target="_blank" class="modal-button">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf90sI8ij0icbDs2gpheEBlH1IHZgIHFv7cpqXsetnYtzDISg/viewform?usp=header"
+                target="_blank" class="modal-button">
                 제일 먼저 만나보기 ✨
             </a>
         </div>
@@ -289,21 +312,29 @@
             <div class="email-alternatives">
                 <p class="alternatives-title">메일 보내기:</p>
                 <div class="webmail-buttons">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank" class="webmail-link gmail">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank"
+                        class="webmail-link gmail">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                            <path
+                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                                fill="currentColor" />
                         </svg>
                         Gmail로 보내기
                     </a>
-                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr" target="_blank" class="webmail-link outlook">
+                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr"
+                        target="_blank" class="webmail-link outlook">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                            <path
+                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
+                                fill="currentColor" />
                         </svg>
                         Outlook으로 보내기
                     </a>
                     <a href="mailto:ai.nomad@neurolearn.co.kr" class="webmail-link default">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 5V7L12 12L5 7V5H19ZM5 19V9L12 14L19 9V19H5Z" fill="currentColor"/>
+                            <path
+                                d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 5V7L12 12L5 7V5H19ZM5 19V9L12 14L19 9V19H5Z"
+                                fill="currentColor" />
                         </svg>
                         기본 메일 앱
                     </a>
@@ -314,4 +345,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
