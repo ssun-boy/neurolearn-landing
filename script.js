@@ -1,4 +1,44 @@
 // ========================================
+// Theme Functions
+// ========================================
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+
+    // Save preference
+    const isDark = body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    // Update Logo
+    updateLogo(isDark);
+}
+
+// Initialize Theme
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Update Logo
+    updateLogo(isDark);
+}
+
+function updateLogo(isDark) {
+    const logoImages = document.querySelectorAll('.logo-image');
+    logoImages.forEach(img => {
+        if (isDark) {
+            img.src = 'assets/images/new_뉴로런_black_wall.jpg';
+        } else {
+            img.src = 'assets/images/neurolearn-logo.png';
+        }
+    });
+}
+
+// ========================================
 // Modal Functions
 // ========================================
 function showModal() {
@@ -52,7 +92,7 @@ function copyEmail() {
 }
 
 // Close modal when clicking outside
-window.onclick = function(event) {
+window.onclick = function (event) {
     const modal = document.getElementById('modal');
     const contactModal = document.getElementById('contactModal');
 
@@ -65,7 +105,7 @@ window.onclick = function(event) {
 }
 
 // Close modal with ESC key
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeModal();
         closeContactModal();
@@ -121,7 +161,10 @@ const observer = new IntersectionObserver((entries) => {
 // ========================================
 // Initialize on DOM Load
 // ========================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize Theme
+    initTheme();
+
     // Observe stat numbers
     document.querySelectorAll('.stat-number').forEach(el => {
         el.style.opacity = '0';

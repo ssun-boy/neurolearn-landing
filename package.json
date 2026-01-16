@@ -1,0 +1,15 @@
+{
+    "name": "neurolearn-landing",
+    "version": "1.0.0",
+    "description": "NeuroLearn Landing Page",
+    "scripts": {
+        "dev": "npx http-server -p 8080 -c-1",
+        "start": "npm run dev"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "http-server": "^14.1.1"
+    }
+}
