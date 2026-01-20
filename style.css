@@ -1074,12 +1074,12 @@ body.dark-mode .cta-gradient {
    ======================================== */
 .footer {
     padding: 60px 0;
-    background: var(--bg-secondary);
+    background: #FFFFFF;
     border-top: 1px solid var(--border-glass);
 }
 
 body.dark-mode .footer {
-    background: var(--bg-tertiary);
+    background: #000000;
 }
 
 .footer-content {
