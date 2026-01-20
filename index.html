@@ -60,25 +60,23 @@
         </div>
     </header>
 
-    <!-- Hero Section with Video Background -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="video-background">
-            <!-- 실제 영상이 준비되면 여기에 추가 -->
-            <!-- <video autoplay muted loop playsinline>
-                <source src="assets/videos/hero-background.mp4" type="video/mp4">
-            </video> -->
-            <div class="video-placeholder"></div>
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
         </div>
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">
+            <h1 class="hero-title animate-on-scroll">
                 당신의 뇌가 기억하는 방식으로<br>
                 <span class="highlight">합격</span>하세요
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle animate-on-scroll">
                 AI가 학습 패턴을 분석하고, 뇌과학이 최적의 학습 경로를 설계합니다
             </p>
-            <button class="cta-button-large" onclick="showModal()">
+            <button class="cta-button-large glow-button" onclick="showModal()">
                 무료로 시작하기
                 <span class="arrow">→</span>
             </button>
@@ -89,45 +87,104 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Bento Grid Features Section -->
     <section class="features">
         <div class="container">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon brain">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 2C10.9 2 10 2.9 10 4C10 4.7 10.4 5.4 11 5.7V6C11 7.1 10.1 8 9 8C7.9 8 7 7.1 7 6V5.7C7.6 5.4 8 4.7 8 4C8 2.9 7.1 2 6 2C4.9 2 4 2.9 4 4C4 4.7 4.4 5.4 5 5.7V6C5 8.2 6.8 10 9 10C9.5 10 10 9.9 10.4 9.7C10.2 10.4 10 11.2 10 12C10 12.8 10.2 13.6 10.4 14.3C10 14.1 9.5 14 9 14C6.8 14 5 15.8 5 18V18.3C4.4 18.6 4 19.3 4 20C4 21.1 4.9 22 6 22C7.1 22 8 21.1 8 20C8 19.3 7.6 18.6 7 18.3V18C7 16.9 7.9 16 9 16C10.1 16 11 16.9 11 18V18.3C10.4 18.6 10 19.3 10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20C14 19.3 13.6 18.6 13 18.3V18C13 16.9 13.9 16 15 16C16.1 16 17 16.9 17 18V18.3C16.4 18.6 16 19.3 16 20C16 21.1 16.9 22 18 22C19.1 22 20 21.1 20 20C20 19.3 19.6 18.6 19 18.3V18C19 15.8 17.2 14 15 14C14.5 14 14 14.1 13.6 14.3C13.8 13.6 14 12.8 14 12C14 11.2 13.8 10.4 13.6 9.7C14 9.9 14.5 10 15 10C17.2 10 19 8.2 19 6V5.7C19.6 5.4 20 4.7 20 4C20 2.9 19.1 2 18 2C16.9 2 16 2.9 16 4C16 4.7 16.4 5.4 17 5.7V6C17 7.1 16.1 8 15 8C13.9 8 13 7.1 13 6V5.7C13.6 5.4 14 4.7 14 4C14 2.9 13.1 2 12 2Z"
-                                fill="currentColor" />
-                        </svg>
-                    </div>
-                    <h3>학습과학 기반</h3>
-                    <p>망각곡선을 고려한<br>최적의 복습 타이밍</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon ai">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V6H20V18Z"
-                                fill="currentColor" />
-                            <circle cx="8" cy="10" r="1.5" fill="currentColor" />
-                            <circle cx="16" cy="10" r="1.5" fill="currentColor" />
-                            <path d="M12 17C14.21 17 16 15.21 16 13H8C8 15.21 9.79 17 12 17Z" fill="currentColor" />
+            <h2 class="section-title animate-on-scroll">핵심 기능</h2>
+            <div class="bento-grid">
+                <!-- Large Card - AI 맞춤학습 -->
+                <div class="bento-card bento-large glass-card animate-on-scroll">
+                    <div class="bento-icon ai-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Brain outline -->
+                            <path d="M24 8C20 8 17 11 17 15C17 16.5 17.5 17.8 18.3 19C16.5 20 15 22 15 24.5C15 27.5 17 30 20 30.5C20.5 33 22.5 35 25 35C27.5 35 29.5 33 30 30.5C33 30 35 27.5 35 24.5C35 22 33.5 20 31.7 19C32.5 17.8 33 16.5 33 15C33 11 30 8 26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- AI circuit nodes -->
+                            <circle cx="24" cy="18" r="2" fill="currentColor"/>
+                            <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+                            <circle cx="28" cy="24" r="1.5" fill="currentColor"/>
+                            <circle cx="24" cy="28" r="1.5" fill="currentColor"/>
+                            <!-- Connecting lines -->
+                            <path d="M24 20L24 26" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                            <path d="M22 22L20 24" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                            <path d="M26 22L28 24" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
                         </svg>
                     </div>
                     <h3>AI 맞춤 학습</h3>
-                    <p>개인별 학습 패턴을<br>분석하고 추천</p>
+                    <p>개인별 학습 패턴을 실시간으로 분석하고,<br>최적화된 학습 경로를 제안합니다</p>
+                    <div class="bento-visual">
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring delay-1"></div>
+                        <div class="pulse-ring delay-2"></div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon chart">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M3 13H5V21H3V13ZM7 9H9V21H7V9ZM11 5H13V21H11V5ZM15 9H17V21H15V9ZM19 13H21V21H19V13Z"
-                                fill="currentColor" />
+
+                <!-- Small Card - 망각곡선 -->
+                <div class="bento-card bento-small glass-card animate-on-scroll">
+                    <div class="bento-icon brain-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Clock circle -->
+                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="3"/>
+                            <!-- Clock hands -->
+                            <path d="M24 24L24 14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M24 24L32 28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <!-- Rotation arrows -->
+                            <path d="M38 18C36 12 30 8 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M38 18L38 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M38 18L32 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h3>실시간 진도 추적</h3>
-                    <p>이해도와 취약점을<br>한눈에 파악</p>
+                    <h3>과학적 복습</h3>
+                    <p>망각곡선 기반<br>최적 타이밍</p>
+                </div>
+
+                <!-- Small Card - 진도 추적 -->
+                <div class="bento-card bento-small glass-card animate-on-scroll">
+                    <div class="bento-icon chart-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Clipboard -->
+                            <rect x="10" y="8" width="28" height="36" rx="3" stroke="currentColor" stroke-width="3"/>
+                            <rect x="18" y="4" width="12" height="6" rx="2" fill="currentColor"/>
+                            <!-- Checkmarks -->
+                            <path d="M14 20L18 24L26 16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 30L18 34L26 26" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M30 20L34 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M30 30L34 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>진도 추적</h3>
+                    <p>실시간 분석<br>취약점 파악</p>
+                </div>
+
+                <!-- Wide Card - 학습과학 -->
+                <div class="bento-card bento-wide glass-card animate-on-scroll">
+                    <div class="bento-icon science-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Light bulb -->
+                            <path d="M24 6C18 6 14 10 14 16C14 20 16 22 18 26C18 26 18 30 18 32C18 34 20 36 22 36H26C28 36 30 34 30 32C30 30 30 26 30 26C32 22 34 20 34 16C34 10 30 6 24 6Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Base -->
+                            <path d="M20 36V38C20 40 21 42 24 42C27 42 28 40 28 38V36" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Light rays -->
+                            <path d="M24 2V6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M10 10L13 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M38 10L35 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M6 24H10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M38 24H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="bento-wide-content">
+                        <h3>학습과학 기반</h3>
+                        <p>검증된 뇌과학 연구 결과를 바탕으로 설계된 학습 시스템으로,<br>기억 효율을 극대화합니다</p>
+                    </div>
+                    <div class="bento-stats">
+                        <div class="mini-stat">
+                            <span class="mini-stat-number">97%</span>
+                            <span class="mini-stat-label">기억 정착률</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="mini-stat-number">3x</span>
+                            <span class="mini-stat-label">학습 효율</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,10 +193,9 @@
     <!-- Video Preview Section -->
     <section class="video-preview">
         <div class="container">
-            <h2 class="section-title">영상으로 미리 만나보기</h2>
-            <p class="video-subtitle">NeuroLearn이 제공하는 혁신적인 학습 경험을 영상으로 확인하세요</p>
-            <div class="video-wrapper">
-                <!-- 실제 유튜브 URL로 교체하세요: 현재는 테스트 영상입니다 -->
+            <h2 class="section-title animate-on-scroll">영상으로 미리 만나보기</h2>
+            <p class="video-subtitle animate-on-scroll">NeuroLearn이 제공하는 혁신적인 학습 경험을 영상으로 확인하세요</p>
+            <div class="video-wrapper glass-card animate-on-scroll">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NeuroLearn 소개 영상" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
@@ -151,43 +207,37 @@
     <!-- Process Section -->
     <section class="process">
         <div class="container">
-            <h2 class="section-title">스마트한 학습 여정</h2>
+            <h2 class="section-title animate-on-scroll">스마트한 학습 여정</h2>
             <div class="process-timeline">
-                <div class="process-step">
+                <div class="process-step glass-card animate-on-scroll">
                     <div class="step-number">1</div>
                     <h4>진단 테스트</h4>
                     <p>현재 실력 파악</p>
                 </div>
-                <div class="process-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div class="process-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
-                <div class="process-step">
+                <div class="process-step glass-card animate-on-scroll">
                     <div class="step-number">2</div>
                     <h4>맞춤 커리큘럼</h4>
                     <p>AI 학습 경로 생성</p>
                 </div>
-                <div class="process-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div class="process-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
-                <div class="process-step">
+                <div class="process-step glass-card animate-on-scroll">
                     <div class="step-number">3</div>
                     <h4>학습 & 복습</h4>
                     <p>과학적 반복 학습</p>
                 </div>
-                <div class="process-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3.75"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div class="process-connector animate-on-scroll">
+                    <div class="connector-line"></div>
+                    <div class="connector-dot"></div>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
+                <div class="process-step glass-card animate-on-scroll">
+                    <div class="step-number highlight-step">4</div>
                     <h4>합격</h4>
                     <p>목표 달성</p>
                 </div>
@@ -198,21 +248,28 @@
     <!-- Stats Section -->
     <section class="stats">
         <div class="container">
-            <h2 class="stats-title">뉴로런의 약속</h2>
+            <h2 class="stats-title animate-on-scroll">뉴로런의 약속</h2>
             <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-count="-20">0</div>
+                <div class="stat-item glass-card animate-on-scroll">
+                    <div class="stat-number glow-text" data-count="-20">0</div>
                     <div class="stat-suffix">% 이상</div>
                     <div class="stat-label">학습시간 단축 목표</div>
                     <div class="stat-description">기존 학습법 대비</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-icon">🤖</div>
+                <div class="stat-item glass-card animate-on-scroll">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="12" width="48" height="40" rx="6" stroke="currentColor" stroke-width="3"/>
+                            <circle cx="24" cy="28" r="4" fill="currentColor"/>
+                            <circle cx="40" cy="28" r="4" fill="currentColor"/>
+                            <path d="M22 42C22 42 27 48 32 48C37 48 42 42 42 42" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="stat-label">AI 복습 스케줄</div>
                     <div class="stat-description">망각곡선 최적화 자동 관리</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-count="2000">0</div>
+                <div class="stat-item glass-card animate-on-scroll">
+                    <div class="stat-number glow-text" data-count="2000">0</div>
                     <div class="stat-suffix">+</div>
                     <div class="stat-label">통합 콘텐츠</div>
                     <div class="stat-description">문제/영상/교재 데이터</div>
@@ -224,25 +281,26 @@
     <!-- Timeline Section -->
     <section class="timeline-section">
         <div class="container">
-            <h2 class="section-title">런칭 로드맵</h2>
+            <h2 class="section-title animate-on-scroll">런칭 로드맵</h2>
             <div class="timeline">
-                <div class="timeline-item active">
+                <div class="timeline-item active animate-on-scroll">
                     <div class="timeline-date">2026.01</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-badge">NOW</div>
                         <h4>베타테스터 모집</h4>
                         <p>얼리어답터 모집 중</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-date">2026.06</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <h4>베타서비스 오픈</h4>
                         <p>컴활 2급</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item animate-on-scroll">
                     <div class="timeline-date">2026.12</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content glass-card">
                         <h4>컴활 2급 정식서비스 오픈</h4>
                         <p>컴활 1급 베타 오픈</p>
                     </div>
@@ -253,12 +311,15 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
+        <div class="cta-bg">
+            <div class="cta-gradient"></div>
+        </div>
         <div class="container">
-            <h2 class="cta-title">지금 바로 시작하세요</h2>
-            <p class="cta-description">
+            <h2 class="cta-title animate-on-scroll">지금 바로 시작하세요</h2>
+            <p class="cta-description animate-on-scroll">
                 뇌과학 기반 학습으로 합격까지의 시간을 단축하세요
             </p>
-            <button class="cta-button-large" onclick="showModal()">
+            <button class="cta-button-large glow-button" onclick="showModal()">
                 학습 시작하기
                 <span class="arrow">→</span>
             </button>
@@ -280,7 +341,7 @@
 
     <!-- Modal -->
     <div id="modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content glass-card">
             <span class="modal-close" onclick="closeModal()">&times;</span>
             <div class="modal-icon">🚀</div>
             <h3>곧 만나요!</h3>
@@ -290,7 +351,7 @@
                 <p><strong>오픈 예정:</strong> 2026년 6월</p>
             </div>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf90sI8ij0icbDs2gpheEBlH1IHZgIHFv7cpqXsetnYtzDISg/viewform?usp=header"
-                target="_blank" class="modal-button">
+                target="_blank" class="modal-button glow-button">
                 제일 먼저 만나보기 ✨
             </a>
         </div>
@@ -298,7 +359,7 @@
 
     <!-- Contact Modal -->
     <div id="contactModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content glass-card">
             <span class="modal-close" onclick="closeContactModal()">&times;</span>
             <div class="modal-icon">📧</div>
             <h3>Contact Us</h3>
@@ -306,7 +367,7 @@
             <div class="modal-info">
                 <p class="email-address">ai.nomad@neurolearn.co.kr</p>
             </div>
-            <button class="modal-button" onclick="copyEmail()">
+            <button class="modal-button glow-button" onclick="copyEmail()">
                 📋 이메일 복사하기
             </button>
             <div class="email-alternatives">

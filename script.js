@@ -55,13 +55,10 @@ function closeModal() {
 
 // Contact Modal Functions
 function showContactModal() {
-    console.log('showContactModal called');
     const contactModal = document.getElementById('contactModal');
     if (contactModal) {
         contactModal.classList.add('active');
         document.body.style.overflow = 'hidden';
-    } else {
-        console.error('contactModal element not found');
     }
 }
 
@@ -76,15 +73,17 @@ function copyEmail() {
     const email = 'ai.nomad@neurolearn.co.kr';
     navigator.clipboard.writeText(email).then(() => {
         // Show success message
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = '✅ 복사되었습니다!';
-        button.style.background = 'var(--secondary)';
+        const button = event.target.closest('.modal-button');
+        if (button) {
+            const originalText = button.innerHTML;
+            button.innerHTML = '✅ 복사되었습니다!';
+            button.style.background = 'linear-gradient(135deg, #10B981 0%, #34D399 100%)';
 
-        setTimeout(() => {
-            button.textContent = originalText;
-            button.style.background = 'var(--accent)';
-        }, 2000);
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
     }).catch(err => {
         console.error('Failed to copy email:', err);
         alert('이메일 주소: ai.nomad@neurolearn.co.kr');
@@ -137,26 +136,55 @@ function animateCounter(element, target, duration = 2000) {
 // Intersection Observer for Animations
 // ========================================
 const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Add visible class for CSS animations
+            entry.target.classList.add('visible');
+
             // Counter animation for stats
             if (entry.target.classList.contains('stat-number')) {
                 const target = parseInt(entry.target.getAttribute('data-count'));
-                animateCounter(entry.target, target);
-                observer.unobserve(entry.target);
+                if (!isNaN(target)) {
+                    animateCounter(entry.target, target);
+                }
             }
 
-            // Fade in animation for other elements
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            // Optionally unobserve after animation
+            // animationObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
+
+// ========================================
+// Smooth Parallax for Hero
+// ========================================
+let ticking = false;
+
+function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const heroContent = document.querySelector('.hero-content');
+    const heroOrbs = document.querySelectorAll('.hero-orb');
+    
+    if (heroContent && scrolled < window.innerHeight) {
+        const opacity = Math.max(0, 1 - (scrolled / 500));
+        const translateY = scrolled * 0.3;
+        heroContent.style.transform = `translateY(${translateY}px)`;
+        heroContent.style.opacity = opacity;
+    }
+
+    // Parallax for orbs
+    heroOrbs.forEach((orb, index) => {
+        const speed = 0.1 + (index * 0.05);
+        orb.style.transform = `translate(${Math.sin(scrolled * 0.001 + index) * 20}px, ${scrolled * speed}px)`;
+    });
+
+    ticking = false;
+}
 
 // ========================================
 // Initialize on DOM Load
@@ -165,30 +193,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize Theme
     initTheme();
 
-    // Observe stat numbers
-    document.querySelectorAll('.stat-number').forEach(el => {
-        el.style.opacity = '0';
-        observer.observe(el);
+    // Observe all animate-on-scroll elements
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        animationObserver.observe(el);
     });
 
-    // Observe feature cards
-    document.querySelectorAll('.feature-card').forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `all 0.6s ease ${index * 0.1}s`;
-        observer.observe(el);
+    // Observe stat numbers separately (they might not have animate-on-scroll class)
+    document.querySelectorAll('.stat-number[data-count]').forEach(el => {
+        if (!el.classList.contains('animate-on-scroll')) {
+            animationObserver.observe(el);
+        }
     });
 
-    // Observe process steps
-    document.querySelectorAll('.process-step').forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = `all 0.6s ease ${index * 0.15}s`;
-        observer.observe(el);
-    });
-
-    // Header background on scroll & Hide scroll indicator
-    let lastScroll = 0;
+    // Header effects & scroll indicator
     const header = document.querySelector('.header');
     const scrollIndicator = document.querySelector('.scroll-indicator');
 
@@ -196,21 +213,27 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentScroll = window.pageYOffset;
 
         // Header shadow
-        if (currentScroll > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+        if (currentScroll > 50) {
+            header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
         } else {
             header.style.boxShadow = 'none';
         }
 
         // Hide scroll indicator on scroll
-        if (currentScroll > 50 && scrollIndicator) {
+        if (currentScroll > 100 && scrollIndicator) {
             scrollIndicator.classList.add('hidden');
+        } else if (scrollIndicator) {
+            scrollIndicator.classList.remove('hidden');
         }
 
-        lastScroll = currentScroll;
+        // Parallax effect (throttled)
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
     });
 
-    // Smooth scroll for anchor links (if any added later)
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -224,49 +247,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Add parallax effect to hero
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero-content');
-        if (hero && scrolled < window.innerHeight) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-            hero.style.opacity = 1 - (scrolled / 600);
-        }
+    // Add hover effect to glass cards
+    document.querySelectorAll('.glass-card').forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+            this.style.setProperty('--mouse-x', e.offsetX + 'px');
+            this.style.setProperty('--mouse-y', e.offsetY + 'px');
+        });
+
+        card.addEventListener('mousemove', function(e) {
+            this.style.setProperty('--mouse-x', e.offsetX + 'px');
+            this.style.setProperty('--mouse-y', e.offsetY + 'px');
+        });
     });
 
-    // Log page load
-    console.log('NeuroLearn Landing Page Loaded ✨');
-    console.log('Ready to transform learning with AI and neuroscience! 🧠🤖');
+    // Console log
+    console.log('%cNeuroLearn', 'font-size: 24px; font-weight: bold; color: #0066FF;');
+    console.log('%c🧠 AI + Neuroscience = Smarter Learning', 'font-size: 14px; color: #8B5CF6;');
 });
 
 // ========================================
 // Performance: Preload critical resources
 // ========================================
 if ('loading' in HTMLImageElement.prototype) {
-    // Browser supports lazy loading
     const images = document.querySelectorAll('img[loading="lazy"]');
     images.forEach(img => {
-        img.src = img.dataset.src;
+        if (img.dataset.src) {
+            img.src = img.dataset.src;
+        }
     });
-} else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
 }
 
 // ========================================
-// Analytics placeholder (if needed later)
+// Analytics placeholder
 // ========================================
 function trackEvent(category, action, label) {
-    console.log(`Event tracked: ${category} - ${action} - ${label}`);
-    // Add Google Analytics or other tracking here
-    // Example: gtag('event', action, { 'event_category': category, 'event_label': label });
+    console.log(`📊 Event: ${category} - ${action} - ${label}`);
+    // gtag('event', action, { 'event_category': category, 'event_label': label });
 }
 
 // Track CTA clicks
-document.querySelectorAll('.cta-button-large, .cta-button-header').forEach(button => {
-    button.addEventListener('click', () => {
-        trackEvent('CTA', 'click', 'Start Learning Button');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cta-button-large, .modal-button').forEach(button => {
+        button.addEventListener('click', () => {
+            trackEvent('CTA', 'click', button.textContent.trim());
+        });
     });
+});
+
+// ========================================
+// Keyboard Navigation Enhancement
+// ========================================
+document.addEventListener('keydown', function(e) {
+    // Focus trap for modals
+    const modal = document.querySelector('.modal.active');
+    if (modal) {
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.key === 'Tab') {
+            if (e.shiftKey && document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            } else if (!e.shiftKey && document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        }
+    }
 });
