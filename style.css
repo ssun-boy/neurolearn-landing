@@ -623,38 +623,93 @@ body.dark-mode .features::before {
 /* Bento Visual Effects */
 .bento-visual {
     position: absolute;
-    bottom: 40px;
-    right: 40px;
-    width: 120px;
-    height: 120px;
+    bottom: 30px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
 }
 
-.pulse-ring {
+/* Neural Graph Animation */
+.neural-graph {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.graph-node {
     position: absolute;
-    inset: 0;
-    border: 2px solid var(--primary);
+    width: 12px;
+    height: 12px;
+    background: var(--primary);
     border-radius: 50%;
-    opacity: 0;
-    animation: pulseRing 3s infinite;
+    box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
+    animation: nodePulse 3s ease-in-out infinite;
 }
 
-.pulse-ring.delay-1 {
+.node-1 {
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.node-2 {
+    bottom: 10%;
+    left: 10%;
+    background: var(--accent);
     animation-delay: 1s;
 }
 
-.pulse-ring.delay-2 {
+.node-3 {
+    bottom: 10%;
+    right: 10%;
+    background: var(--secondary);
     animation-delay: 2s;
 }
 
-@keyframes pulseRing {
-    0% {
-        transform: scale(0.5);
-        opacity: 0.8;
+.graph-link {
+    position: absolute;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.2;
+    transform-origin: left center;
+}
+
+.link-1 {
+    top: 16%;
+    left: 50%;
+    width: 56%;
+    height: 2px;
+    transform: rotate(115deg);
+}
+
+.link-2 {
+    top: 16%;
+    left: 50%;
+    width: 56%;
+    height: 2px;
+    transform: rotate(65deg);
+}
+
+.link-3 {
+    bottom: 15%;
+    left: 16%;
+    width: 68%;
+    height: 2px;
+}
+
+@keyframes nodePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
     }
 
-    100% {
-        transform: scale(1.5);
-        opacity: 0;
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+        box-shadow: 0 0 20px rgba(0, 102, 255, 0.6);
     }
 }
 
