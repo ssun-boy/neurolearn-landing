@@ -363,8 +363,29 @@ body.dark-mode .header {
     color: var(--primary);
 }
 
-/* Hide main nav on mobile */
-@media (max-width: 768px) {
+/* Responsive navigation */
+@media (max-width: 1200px) {
+    .nav-link {
+        font-size: 16px;
+    }
+
+    .nav-menu {
+        gap: var(--space-2);
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .nav-menu {
+        gap: var(--space-1);
+    }
+}
+
+/* Hide main nav on tablet and mobile */
+@media (max-width: 900px) {
     .main-nav {
         display: none;
     }
@@ -1886,15 +1907,22 @@ body.dark-mode .footer {
         min-height: 44px;
     }
 
+    /* Icon-only contact button on small mobile */
     .contact-button {
-        padding: 8px 12px;
-        font-size: 12px;
+        padding: 10px;
+        min-width: 44px;
         min-height: 44px;
+        font-size: 0; /* Hide text */
+        gap: 0;
     }
 
-    .contact-icon {
-        width: 16px;
-        height: 16px;
+    .contact-button .contact-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .logo-image {
+        height: 36px;
     }
 
     .hero-title {
