@@ -7,18 +7,79 @@
     <meta name="description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼 NeuroLearn">
     <meta name="keywords" content="자격증, 학습, AI, 뇌과학, 망각곡선, 맞춤학습">
     <title>NeuroLearn - AI와 뇌과학으로 합격하세요</title>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.neurolearn.co.kr">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.neurolearn.co.kr">
+    <meta property="og:title" content="NeuroLearn - AI와 뇌과학으로 합격하세요">
+    <meta property="og:description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼. 망각곡선 기반 최적 복습으로 학습 효율을 극대화하세요.">
+    <meta property="og:image" content="https://www.neurolearn.co.kr/assets/images/og-image.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:site_name" content="NeuroLearn">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.neurolearn.co.kr">
+    <meta name="twitter:title" content="NeuroLearn - AI와 뇌과학으로 합격하세요">
+    <meta name="twitter:description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼. 망각곡선 기반 최적 복습으로 학습 효율을 극대화하세요.">
+    <meta name="twitter:image" content="https://www.neurolearn.co.kr/assets/images/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0066FF">
+
+    <!-- Fonts -->
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Toast Container -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">복사되었습니다</span>
+    </div>
+
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
+    <!-- SVG Symbol Definitions -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-email" viewBox="0 0 24 24">
+            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+        </symbol>
+        <symbol id="icon-email-outline" viewBox="0 0 24 24">
+            <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 5V7L12 12L5 7V5H19ZM5 19V9L12 14L19 9V19H5Z" fill="currentColor"/>
+        </symbol>
+    </svg>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn Logo" class="logo-image">
             </div>
+            <!-- Desktop Navigation Menu -->
+            <nav class="main-nav" aria-label="메인 메뉴">
+                <ul class="nav-menu">
+                    <li><a href="#features" class="nav-link">기능</a></li>
+                    <li><a href="#process" class="nav-link">학습 여정</a></li>
+                    <li><a href="#stats" class="nav-link">뉴로런의 약속</a></li>
+                    <li><a href="#timeline" class="nav-link">로드맵</a></li>
+                </ul>
+            </nav>
+
             <nav class="header-nav">
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="테마 변경">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,23 +108,27 @@
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
-                <button class="contact-button" onclick="showContactModal()">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                        <path
-                            d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
-                            fill="currentColor" />
+                <button type="button" class="contact-button" onclick="showContactModal()" aria-label="문의하기 - 이메일 연락처 보기">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <use href="#icon-email"></use>
                     </svg>
-                    Contact Us
+                    문의하기
                 </button>
-
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <main id="main-content">
+    <section class="hero" aria-label="메인 히어로 섹션">
         <div class="hero-bg">
             <div class="hero-gradient"></div>
+            <!-- Aurora Effect -->
+            <div class="aurora">
+                <div class="aurora-layer aurora-1"></div>
+                <div class="aurora-layer aurora-2"></div>
+                <div class="aurora-layer aurora-3"></div>
+            </div>
             <div class="hero-orb hero-orb-1"></div>
             <div class="hero-orb hero-orb-2"></div>
             <div class="hero-orb hero-orb-3"></div>
@@ -76,9 +141,9 @@
             <p class="hero-subtitle animate-on-scroll">
                 AI가 학습 패턴을 분석하고, 뇌과학이 최적의 학습 경로를 설계합니다
             </p>
-            <button class="cta-button-large glow-button" onclick="showModal()">
+            <button type="button" class="cta-button-large glow-button" onclick="showModal()">
                 무료로 시작하기
-                <span class="arrow">→</span>
+                <span class="arrow" aria-hidden="true">→</span>
             </button>
         </div>
         <div class="scroll-indicator">
@@ -88,7 +153,7 @@
     </section>
 
     <!-- Bento Grid Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
             <h2 class="section-title animate-on-scroll">핵심 기능</h2>
             <div class="bento-grid">
@@ -211,14 +276,14 @@
             <div class="video-wrapper glass-card animate-on-scroll">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NeuroLearn 소개 영상" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
+                    allowfullscreen loading="lazy">
                 </iframe>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="process">
+    <section class="process" id="process">
         <div class="container">
             <h2 class="section-title animate-on-scroll">스마트한 학습 여정</h2>
             <div class="process-timeline">
@@ -259,7 +324,7 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats">
+    <section class="stats" id="stats">
         <div class="container">
             <h2 class="stats-title animate-on-scroll">뉴로런의 약속</h2>
             <div class="stats-grid">
@@ -293,7 +358,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline-section">
+    <section class="timeline-section" id="timeline">
         <div class="container">
             <h2 class="section-title animate-on-scroll">런칭 로드맵</h2>
             <div class="timeline">
@@ -333,12 +398,14 @@
             <p class="cta-description animate-on-scroll">
                 뇌과학 기반 학습으로 합격까지의 시간을 단축하세요
             </p>
-            <button class="cta-button-large glow-button" onclick="showModal()">
+            <button type="button" class="cta-button-large glow-button" onclick="showModal()">
                 학습 시작하기
-                <span class="arrow">→</span>
+                <span class="arrow" aria-hidden="true">→</span>
             </button>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -354,11 +421,11 @@
     </footer>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="modal-content glass-card">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div class="modal-icon">🚀</div>
-            <h3>곧 만나요!</h3>
+            <button type="button" class="modal-close" onclick="closeModal()" aria-label="모달 닫기">&times;</button>
+            <div class="modal-icon" aria-hidden="true">🚀</div>
+            <h3 id="modal-title">곧 만나요!</h3>
             <p>NeuroLearn은 현재 베타 테스트를 준비 중입니다.<br>
                 더 나은 학습 경험을 위해 열심히 개발하고 있습니다.</p>
             <div class="modal-info">
@@ -372,44 +439,38 @@
     </div>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
+    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
         <div class="modal-content glass-card">
-            <span class="modal-close" onclick="closeContactModal()">&times;</span>
-            <div class="modal-icon">📧</div>
-            <h3>Contact Us</h3>
+            <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="모달 닫기">&times;</button>
+            <div class="modal-icon" aria-hidden="true">📧</div>
+            <h3 id="contact-modal-title">Contact Us</h3>
             <p>궁금하신 점이 있으신가요?<br>언제든지 문의해 주세요!</p>
             <div class="modal-info">
                 <p class="email-address">ai.nomad@neurolearn.co.kr</p>
             </div>
-            <button class="modal-button glow-button" onclick="copyEmail()">
-                📋 이메일 복사하기
+            <button type="button" class="modal-button glow-button" onclick="copyEmail()">
+                <span aria-hidden="true">📋</span> 이메일 복사하기
             </button>
             <div class="email-alternatives">
                 <p class="alternatives-title">메일 보내기:</p>
                 <div class="webmail-buttons">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank"
-                        class="webmail-link gmail">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path
-                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
-                                fill="currentColor" />
+                        class="webmail-link gmail" rel="noopener noreferrer">
+                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <use href="#icon-email"></use>
                         </svg>
                         Gmail로 보내기
                     </a>
                     <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr"
-                        target="_blank" class="webmail-link outlook">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path
-                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"
-                                fill="currentColor" />
+                        target="_blank" class="webmail-link outlook" rel="noopener noreferrer">
+                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <use href="#icon-email"></use>
                         </svg>
                         Outlook으로 보내기
                     </a>
                     <a href="mailto:ai.nomad@neurolearn.co.kr" class="webmail-link default">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="webmail-icon">
-                            <path
-                                d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 5V7L12 12L5 7V5H19ZM5 19V9L12 14L19 9V19H5Z"
-                                fill="currentColor" />
+                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <use href="#icon-email-outline"></use>
                         </svg>
                         기본 메일 앱
                     </a>

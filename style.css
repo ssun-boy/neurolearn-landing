@@ -7,6 +7,28 @@
     box-sizing: border-box;
 }
 
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
 :root {
     /* Light Mode - Electric Blue & Violet Theme */
     --primary: #0066FF;
@@ -37,6 +59,25 @@
     --shadow-lg: 0 8px 16px rgba(0, 102, 255, 0.05);
     --shadow-glow: 0 0 13px rgba(0, 102, 255, 0.1);
     --shadow-glow-accent: 0 0 13px rgba(139, 92, 246, 0.1);
+
+    /* Spacing System (8px base) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 40px;
+    --space-6: 48px;
+    --space-8: 64px;
+    --space-10: 80px;
+    --space-12: 96px;
+    --space-15: 120px;
+
+    /* Border Radius System */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
 
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,6 +127,95 @@ body {
     overflow-x: hidden;
     background: var(--bg-primary);
     transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ========================================
+   Global Focus & Active Styles
+   ======================================== */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Global Active State for Buttons */
+button:active,
+.cta-button-large:active,
+.modal-button:active,
+.contact-button:active,
+.theme-toggle:active {
+    transform: scale(0.97);
+}
+
+/* ========================================
+   Reduced Motion Support
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .hero-orb,
+    .scroll-indicator,
+    .graph-node,
+    .connector-dot {
+        animation: none !important;
+    }
+}
+
+/* ========================================
+   Scroll Progress Bar
+   ======================================== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    z-index: 10001;
+    transition: width 0.1s linear;
+}
+
+/* ========================================
+   Toast Notification
+   ======================================== */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 14px;
+    z-index: 10002;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    box-shadow: var(--shadow-lg);
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-icon {
+    font-size: 18px;
 }
 
 .container {
@@ -182,6 +312,64 @@ body.dark-mode .header {
     object-fit: contain;
 }
 
+/* Main Navigation Menu */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary);
+}
+
+/* Hide main nav on mobile */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+}
+
 .header-nav {
     display: flex;
     align-items: center;
@@ -193,8 +381,10 @@ body.dark-mode .header {
     border: 1px solid var(--border-glass);
     color: var(--text-primary);
     padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,10 +415,11 @@ body.dark-mode .theme-toggle .moon-icon {
 
 .contact-button {
     padding: 10px 20px;
+    min-height: 44px;
     background: var(--bg-glass);
     color: var(--text-primary);
     border: 1px solid var(--border-glass);
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -298,6 +489,67 @@ body.dark-mode .hero-gradient {
     50% {
         opacity: 0.7;
     }
+}
+
+/* Aurora Effect */
+.aurora {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.aurora-layer {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    opacity: 0.3;
+    filter: blur(100px);
+    animation: auroraFlow 15s ease-in-out infinite;
+}
+
+.aurora-1 {
+    background: radial-gradient(ellipse at 30% 20%, var(--primary) 0%, transparent 60%);
+    top: -25%;
+    left: -25%;
+    animation-duration: 18s;
+}
+
+.aurora-2 {
+    background: radial-gradient(ellipse at 70% 80%, var(--accent) 0%, transparent 60%);
+    top: -25%;
+    left: -25%;
+    animation-duration: 22s;
+    animation-delay: -5s;
+}
+
+.aurora-3 {
+    background: radial-gradient(ellipse at 50% 50%, var(--secondary) 0%, transparent 60%);
+    top: -25%;
+    left: -25%;
+    animation-duration: 25s;
+    animation-delay: -10s;
+    opacity: 0.15;
+}
+
+@keyframes auroraFlow {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translate(5%, 5%) rotate(5deg) scale(1.05);
+    }
+    50% {
+        transform: translate(-5%, 10%) rotate(-5deg) scale(0.95);
+    }
+    75% {
+        transform: translate(10%, -5%) rotate(3deg) scale(1.02);
+    }
+}
+
+/* Dark mode aurora intensity */
+body.dark-mode .aurora-layer {
+    opacity: 0.2;
 }
 
 .hero-orb {
@@ -1030,6 +1282,15 @@ body.dark-mode .features::before {
     box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
 }
 
+/* Inactive timeline items - subtle styling */
+.timeline-item:not(.active) .timeline-content {
+    opacity: 0.7;
+}
+
+.timeline-item:not(.active):hover .timeline-content {
+    opacity: 1;
+}
+
 .timeline-date {
     font-size: 14px;
     font-weight: 700;
@@ -1229,6 +1490,15 @@ body.dark-mode .footer {
     cursor: pointer;
     transition: var(--transition);
     line-height: 1;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.modal-close:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 .modal-close:hover {
@@ -1612,11 +1882,14 @@ body.dark-mode .footer {
 
     .theme-toggle {
         padding: 8px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .contact-button {
         padding: 8px 12px;
         font-size: 12px;
+        min-height: 44px;
     }
 
     .contact-icon {

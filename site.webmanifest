@@ -1,0 +1,28 @@
+{
+  "name": "NeuroLearn - AI와 뇌과학으로 합격하세요",
+  "short_name": "NeuroLearn",
+  "description": "AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFBFF",
+  "theme_color": "#0066FF",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "lang": "ko",
+  "categories": ["education", "productivity"]
+}

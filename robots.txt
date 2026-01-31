@@ -1,0 +1,12 @@
+# robots.txt for NeuroLearn
+# https://www.neurolearn.co.kr
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.neurolearn.co.kr/sitemap.xml
+
+# Disallow admin or private areas (if any)
+# Disallow: /admin/
+# Disallow: /private/

@@ -1,4 +1,64 @@
 // ========================================
+// Toast Notification
+// ========================================
+function showToast(message, duration = 2500) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+
+    const toastMessage = toast.querySelector('.toast-message');
+    if (toastMessage) {
+        toastMessage.textContent = message;
+    }
+
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, duration);
+}
+
+// ========================================
+// Scroll Progress Bar
+// ========================================
+function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (!scrollProgress) return;
+
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+
+    scrollProgress.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+}
+
+// ========================================
+// Navigation Active State
+// ========================================
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let currentSection = '';
+    const scrollPosition = window.pageYOffset + 150;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ========================================
 // Theme Functions
 // ========================================
 function toggleTheme() {
@@ -31,7 +91,7 @@ function updateLogo(isDark) {
     const logoImages = document.querySelectorAll('.logo-image');
     logoImages.forEach(img => {
         if (isDark) {
-            img.src = 'assets/images/new_뉴로런_black_wall.jpg';
+            img.src = 'assets/images/neurolearn-logo-dark.jpg';
         } else {
             img.src = 'assets/images/neurolearn-logo.png';
         }
@@ -72,11 +132,14 @@ function closeContactModal() {
 function copyEmail() {
     const email = 'ai.nomad@neurolearn.co.kr';
     navigator.clipboard.writeText(email).then(() => {
-        // Show success message
+        // Show toast notification
+        showToast('이메일이 복사되었습니다!');
+
+        // Also update button temporarily
         const button = event.target.closest('.modal-button');
         if (button) {
             const originalText = button.innerHTML;
-            button.innerHTML = '✅ 복사되었습니다!';
+            button.innerHTML = '<span aria-hidden="true">✓</span> 복사 완료!';
             button.style.background = 'linear-gradient(135deg, #10B981 0%, #34D399 100%)';
 
             setTimeout(() => {
@@ -86,7 +149,7 @@ function copyEmail() {
         }
     }).catch(err => {
         console.error('Failed to copy email:', err);
-        alert('이메일 주소: ai.nomad@neurolearn.co.kr');
+        showToast('복사 실패 - 이메일: ai.nomad@neurolearn.co.kr');
     });
 }
 
@@ -225,6 +288,12 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (scrollIndicator) {
             scrollIndicator.classList.remove('hidden');
         }
+
+        // Update scroll progress bar
+        updateScrollProgress();
+
+        // Update active navigation link
+        updateActiveNavLink();
 
         // Parallax effect (throttled)
         if (!ticking) {
