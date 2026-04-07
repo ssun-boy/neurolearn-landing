@@ -4,480 +4,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼 NeuroLearn">
-    <meta name="keywords" content="자격증, 학습, AI, 뇌과학, 망각곡선, 맞춤학습">
-    <title>NeuroLearn - AI와 뇌과학으로 합격하세요</title>
+    <meta name="description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼 NeuroLearn - 학습 탐색시간을 제로로">
+    <meta name="keywords" content="자격증, 학습, AI, 뇌과학, 망각곡선, 맞춤학습, 컴활">
+    <title>NeuroLearn - 학습 탐색시간을 제로로</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.neurolearn.co.kr">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.neurolearn.co.kr">
-    <meta property="og:title" content="NeuroLearn - AI와 뇌과학으로 합격하세요">
-    <meta property="og:description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼. 망각곡선 기반 최적 복습으로 학습 효율을 극대화하세요.">
+    <meta property="og:title" content="NeuroLearn - 학습 탐색시간을 제로로">
+    <meta property="og:description" content="AI가 도와드릴게요. 학습에만 전념하세요. 자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.">
     <meta property="og:image" content="https://www.neurolearn.co.kr/assets/images/og-image.png">
     <meta property="og:locale" content="ko_KR">
-    <meta property="og:site_name" content="NeuroLearn">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.neurolearn.co.kr">
-    <meta name="twitter:title" content="NeuroLearn - AI와 뇌과학으로 합격하세요">
-    <meta name="twitter:description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼. 망각곡선 기반 최적 복습으로 학습 효율을 극대화하세요.">
-    <meta name="twitter:image" content="https://www.neurolearn.co.kr/assets/images/og-image.png">
+    <meta name="twitter:title" content="NeuroLearn - 학습 탐색시간을 제로로">
+    <meta name="twitter:description" content="AI가 도와드릴게요. 학습에만 전념하세요.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#0066FF">
+    <meta name="theme-color" content="#7C3AED">
 
     <!-- Fonts -->
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    </noscript>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "NeuroLearn",
+        "applicationCategory": "EducationalApplication",
+        "url": "https://www.neurolearn.co.kr",
+        "description": "AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼",
+        "operatingSystem": "Web",
+        "inLanguage": "ko"
+    }
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Toast Container -->
-    <div class="toast" id="toast">
-        <span class="toast-icon">✓</span>
-        <span class="toast-message">복사되었습니다</span>
-    </div>
-
-    <!-- Skip Navigation Link -->
+    <!-- Skip Navigation -->
     <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
-
-    <!-- SVG Symbol Definitions -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="icon-email" viewBox="0 0 24 24">
-            <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
-        </symbol>
-        <symbol id="icon-email-outline" viewBox="0 0 24 24">
-            <path d="M19 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 5V7L12 12L5 7V5H19ZM5 19V9L12 14L19 9V19H5Z" fill="currentColor"/>
-        </symbol>
-    </svg>
 
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="logo">
-                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn Logo" class="logo-image">
-            </div>
-            <!-- Desktop Navigation Menu -->
-            <nav class="main-nav" aria-label="메인 메뉴">
-                <ul class="nav-menu">
-                    <li><a href="#features" class="nav-link">기능</a></li>
-                    <li><a href="#process" class="nav-link">학습 여정</a></li>
-                    <li><a href="#stats" class="nav-link">뉴로런의 약속</a></li>
-                    <li><a href="#timeline" class="nav-link">로드맵</a></li>
-                </ul>
-            </nav>
-
-            <nav class="header-nav">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-image" width="140" height="40">
+            </a>
+            <nav class="header-nav" aria-label="메인 메뉴">
                 <button class="theme-toggle" onclick="toggleTheme()" aria-label="테마 변경">
-                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M12 1V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M12 21V23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M4.22 4.22L5.64 5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M18.36 18.36L19.78 19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M1 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M21 12H23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none"><path d="M12 17C14.76 17 17 14.76 17 12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17Z" stroke="currentColor" stroke-width="2"/><path d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
                 </button>
-                <button type="button" class="contact-button" onclick="showContactModal()" aria-label="문의하기 - 이메일 연락처 보기">
-                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <use href="#icon-email"></use>
-                    </svg>
-                    문의하기
-                </button>
+                <button class="btn btn-outline" onclick="showTrialModal()">무료 체험</button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <main id="main-content">
-    <section class="hero" aria-label="메인 히어로 섹션">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
-            <!-- Aurora Effect -->
-            <div class="aurora">
-                <div class="aurora-layer aurora-1"></div>
-                <div class="aurora-layer aurora-2"></div>
-                <div class="aurora-layer aurora-3"></div>
-            </div>
-            <div class="hero-orb hero-orb-1"></div>
-            <div class="hero-orb hero-orb-2"></div>
-            <div class="hero-orb hero-orb-3"></div>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-title animate-on-scroll">
-                당신의 뇌가 기억하는 방식으로<br>
-                <span class="highlight">합격</span>하세요
-            </h1>
-            <p class="hero-subtitle animate-on-scroll">
-                AI가 학습 패턴을 분석하고, 뇌과학이 최적의 학습 경로를 설계합니다
-            </p>
-            <button type="button" class="cta-button-large glow-button" onclick="showModal()">
-                무료로 시작하기
-                <span class="arrow" aria-hidden="true">→</span>
-            </button>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
 
-    <!-- Bento Grid Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">핵심 기능</h2>
-            <div class="bento-grid">
-                <!-- Large Card - AI 맞춤학습 -->
-                <div class="bento-card bento-large glass-card animate-on-scroll">
-                    <div class="bento-icon ai-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Brain outline -->
-                            <path
-                                d="M24 8C20 8 17 11 17 15C17 16.5 17.5 17.8 18.3 19C16.5 20 15 22 15 24.5C15 27.5 17 30 20 30.5C20.5 33 22.5 35 25 35C27.5 35 29.5 33 30 30.5C33 30 35 27.5 35 24.5C35 22 33.5 20 31.7 19C32.5 17.8 33 16.5 33 15C33 11 30 8 26 8"
-                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <!-- AI circuit nodes -->
-                            <circle cx="24" cy="18" r="2" fill="currentColor" />
-                            <circle cx="20" cy="24" r="1.5" fill="currentColor" />
-                            <circle cx="28" cy="24" r="1.5" fill="currentColor" />
-                            <circle cx="24" cy="28" r="1.5" fill="currentColor" />
-                            <!-- Connecting lines -->
-                            <path d="M24 20L24 26" stroke="currentColor" stroke-width="1.5" opacity="0.6" />
-                            <path d="M22 22L20 24" stroke="currentColor" stroke-width="1.5" opacity="0.6" />
-                            <path d="M26 22L28 24" stroke="currentColor" stroke-width="1.5" opacity="0.6" />
-                        </svg>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-badge animate-on-scroll">컴활 2급 실기 특화</div>
+                <h1 class="hero-title animate-on-scroll">
+                    학습 탐색시간을<br><span class="text-gradient">제로</span>로
+                </h1>
+                <p class="hero-subtitle animate-on-scroll">
+                    AI가 도와드릴게요. 학습에만 전념하세요.
+                </p>
+                <p class="hero-desc animate-on-scroll">
+                    자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.<br>
+                    NeuroLearn이 탐색을 없애고, 학습에만 집중하게 해드립니다.
+                </p>
+                <div class="hero-actions animate-on-scroll">
+                    <button class="btn btn-primary btn-lg" onclick="showTrialModal()">
+                        3분 체험 시작
+                        <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    </button>
+                    <a href="#how-it-works" class="btn btn-ghost btn-lg">작동 원리 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="section problem-section" id="problem">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">매일 <span class="text-gradient">2시간</span>, 공부 아닌 '탐색'에 낭비</h2>
+                <p class="section-desc animate-on-scroll">자격증 학습자가 하루 평균 소비하는 탐색 시간</p>
+                <div class="pain-grid">
+                    <div class="pain-card animate-on-scroll">
+                        <div class="pain-time">50분</div>
+                        <div class="pain-label">뭘 모르는지 모름</div>
+                        <p class="pain-desc">취약점을 파악하느라 시간을 허비</p>
                     </div>
-                    <h3>AI 맞춤 학습</h3>
-                    <p>개인별 학습 패턴을 실시간으로 분석하고,<br>최적화된 학습 경로를 제안합니다</p>
-                    <div class="bento-visual">
-                        <div class="neural-graph">
-                            <div class="graph-link link-1"></div>
-                            <div class="graph-link link-2"></div>
-                            <div class="graph-link link-3"></div>
-                            <div class="graph-node node-1"></div>
-                            <div class="graph-node node-2"></div>
-                            <div class="graph-node node-3"></div>
+                    <div class="pain-card animate-on-scroll">
+                        <div class="pain-time">30분</div>
+                        <div class="pain-label">교재 찾기</div>
+                        <p class="pain-desc">어떤 교재가 맞는지 고민만 반복</p>
+                    </div>
+                    <div class="pain-card animate-on-scroll">
+                        <div class="pain-time">20분</div>
+                        <div class="pain-label">영상 찾기</div>
+                        <p class="pain-desc">수많은 영상 중 필요한 것만 찾기</p>
+                    </div>
+                    <div class="pain-card animate-on-scroll">
+                        <div class="pain-time">15분</div>
+                        <div class="pain-label">다음 할 일 고민</div>
+                        <p class="pain-desc">학습 순서를 정하는 데 에너지 소모</p>
+                    </div>
+                    <div class="pain-card animate-on-scroll">
+                        <div class="pain-time">5분</div>
+                        <div class="pain-label">합격 가능성 불안</div>
+                        <p class="pain-desc">현재 실력으로 합격할 수 있을까?</p>
+                    </div>
+                </div>
+                <div class="pain-total animate-on-scroll">
+                    <span class="pain-total-label">하루 총 탐색 시간</span>
+                    <span class="pain-total-time">~2시간</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works / Features Section -->
+        <section class="section features-section" id="how-it-works">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">NeuroLearn이 <span class="text-gradient">해결</span>합니다</h2>
+                <p class="section-desc animate-on-scroll">5가지 핵심 기능으로 탐색 시간을 제로로</p>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll" onclick="showTrialModal()">
+                        <div class="feature-num">01</div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2.5"/><path d="M16 24L22 30L34 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>약점 자동 진단</h3>
+                        <p>문제를 풀면 AI가 실시간으로 취약 유형을 분석합니다</p>
+                        <span class="feature-link">체험하기 &rarr;</span>
+                    </div>
+                    <div class="feature-card animate-on-scroll" onclick="showTrialModal()">
+                        <div class="feature-num">02</div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M16 20H32M16 28H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="36" cy="36" r="8" fill="currentColor" opacity="0.2"/><path d="M33 36L36 39L40 34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                        </div>
+                        <h3>콘텐츠 자동 연결</h3>
+                        <p>취약점에 딱 맞는 교재/영상을 자동으로 연결합니다</p>
+                        <span class="feature-link">체험하기 &rarr;</span>
+                    </div>
+                    <div class="feature-card animate-on-scroll" onclick="showTrialModal()">
+                        <div class="feature-num">03</div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><path d="M8 40L24 8L40 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 28H32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="20" r="3" fill="currentColor"/></svg>
+                        </div>
+                        <h3>최적 시작점 제시</h3>
+                        <p>어디서부터 공부해야 할지, AI가 정확히 알려줍니다</p>
+                        <span class="feature-link">체험하기 &rarr;</span>
+                    </div>
+                    <div class="feature-card animate-on-scroll" onclick="showTrialModal()">
+                        <div class="feature-num">04</div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><path d="M8 24C8 15.2 15.2 8 24 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M24 8C32.8 8 40 15.2 40 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/><path d="M40 24C40 32.8 32.8 40 24 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M24 40C15.2 40 8 32.8 8 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/><circle cx="24" cy="24" r="4" fill="currentColor"/></svg>
+                        </div>
+                        <h3>학습 경로 자동 설계</h3>
+                        <p>망각곡선 기반 최적 복습 스케줄을 자동 생성합니다</p>
+                        <span class="feature-link">체험하기 &rarr;</span>
+                    </div>
+                    <div class="feature-card animate-on-scroll" onclick="showTrialModal()">
+                        <div class="feature-num">05</div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="14" width="36" height="24" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M14 30V22M22 30V18M30 30V24M38 30V20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M18 10L24 6L30 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>합격 확률 시각화</h3>
+                        <p>현재 실력 기반 합격 가능성을 실시간으로 보여줍니다</p>
+                        <span class="feature-link">체험하기 &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Preview Section -->
+        <section class="section preview-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">이런 결과를 <span class="text-gradient">바로</span> 받아보세요</h2>
+                <p class="section-desc animate-on-scroll">문제를 풀면 AI가 즉시 분석하고, 맞춤 학습을 연결합니다</p>
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-header">
+                        <div class="preview-score">
+                            <span class="score-number">62</span>
+                            <span class="score-total">/100</span>
+                        </div>
+                        <div class="preview-badge pass-risk">합격까지 조금 더!</div>
+                    </div>
+                    <div class="preview-body">
+                        <div class="preview-item strength">
+                            <div class="preview-item-header">
+                                <span class="dot dot-green"></span>
+                                <strong>가장 잘하는 영역</strong>
+                            </div>
+                            <p>함수 활용 (20/20)</p>
+                        </div>
+                        <div class="preview-item weakness">
+                            <div class="preview-item-header">
+                                <span class="dot dot-red"></span>
+                                <strong>성장 기회</strong>
+                            </div>
+                            <p>조건부 서식 (5/20)</p>
+                        </div>
+                        <div class="preview-item connection">
+                            <div class="preview-item-header">
+                                <span class="dot dot-violet"></span>
+                                <strong>AI 연결 콘텐츠</strong>
+                            </div>
+                            <p>교재 p.127 &middot; 영상 12:30~15:45</p>
                         </div>
                     </div>
+                    <button class="btn btn-primary btn-block" onclick="showTrialModal()">나도 진단 받아보기</button>
                 </div>
+            </div>
+        </section>
 
-                <!-- Small Card - 망각곡선 -->
-                <div class="bento-card bento-small glass-card animate-on-scroll">
-                    <div class="bento-icon brain-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Clock circle -->
-                            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="3" />
-                            <!-- Clock hands -->
-                            <path d="M24 24L24 14" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                            <path d="M24 24L32 28" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
-                            <!-- Rotation arrows -->
-                            <path d="M38 18C36 12 30 8 24 8" stroke="currentColor" stroke-width="2.5"
-                                stroke-linecap="round" />
-                            <path d="M38 18L38 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M38 18L32 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                        </svg>
+        <!-- Comparison Section -->
+        <section class="section comparison-section" id="comparison">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">기존 학습 vs <span class="text-gradient">NeuroLearn</span></h2>
+                <div class="comparison-table animate-on-scroll">
+                    <div class="comparison-header">
+                        <div class="comp-col comp-label-col">학습 단계</div>
+                        <div class="comp-col comp-old">기존 방식</div>
+                        <div class="comp-col comp-new">NeuroLearn</div>
                     </div>
-                    <h3>과학적 복습</h3>
-                    <p>망각곡선 기반<br>최적 타이밍</p>
+                    <div class="comparison-row">
+                        <div class="comp-col comp-label-col">취약점 파악</div>
+                        <div class="comp-col comp-old">직접 분석 50분</div>
+                        <div class="comp-col comp-new highlight">자동 진단 0분</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comp-col comp-label-col">교재 탐색</div>
+                        <div class="comp-col comp-old">인터넷 검색 30분</div>
+                        <div class="comp-col comp-new highlight">자동 연결 0분</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comp-col comp-label-col">영상 탐색</div>
+                        <div class="comp-col comp-old">유튜브 탐색 20분</div>
+                        <div class="comp-col comp-new highlight">자동 연결 0분</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comp-col comp-label-col">학습 순서</div>
+                        <div class="comp-col comp-old">고민만 15분</div>
+                        <div class="comp-col comp-new highlight">자동 설계 0분</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comp-col comp-label-col">합격 예측</div>
+                        <div class="comp-col comp-old">막연한 불안 5분</div>
+                        <div class="comp-col comp-new highlight">실시간 시각화</div>
+                    </div>
+                    <div class="comparison-row comparison-total">
+                        <div class="comp-col comp-label-col"><strong>총 탐색 시간</strong></div>
+                        <div class="comp-col comp-old"><strong>~2시간</strong></div>
+                        <div class="comp-col comp-new highlight"><strong>~0분</strong></div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Small Card - 진도 추적 -->
-                <div class="bento-card bento-small glass-card animate-on-scroll">
-                    <div class="bento-icon chart-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Clipboard -->
-                            <rect x="10" y="8" width="28" height="36" rx="3" stroke="currentColor" stroke-width="3" />
-                            <rect x="18" y="4" width="12" height="6" rx="2" fill="currentColor" />
-                            <!-- Checkmarks -->
-                            <path d="M14 20L18 24L26 16" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M14 30L18 34L26 26" stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M30 20L34 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M30 30L34 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                        </svg>
+        <!-- Team Section -->
+        <section class="section team-section" id="team">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">만드는 <span class="text-gradient">사람들</span></h2>
+                <p class="section-desc animate-on-scroll">성균관대학교 글로벌창업대학원 출신 팀</p>
+                <div class="team-grid">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">B</div>
+                        <h3>Bobby</h3>
+                        <div class="team-role">CPO</div>
+                        <p>플랫폼 전략 20년</p>
                     </div>
-                    <h3>진도 추적</h3>
-                    <p>실시간 분석<br>취약점 파악</p>
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">S</div>
+                        <h3>Sally</h3>
+                        <div class="team-role">Tech Leader</div>
+                        <p>AI 연구 교수, 논문 30편+</p>
+                    </div>
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">B</div>
+                        <h3>Brian</h3>
+                        <div class="team-role">CMO</div>
+                        <p>플랫폼 마케팅 13년</p>
+                    </div>
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-avatar">J</div>
+                        <h3>James</h3>
+                        <div class="team-role">CTO</div>
+                        <p>풀스택 엔지니어링 15년</p>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Wide Card - 학습과학 -->
-                <div class="bento-card bento-wide glass-card animate-on-scroll">
-                    <div class="bento-icon science-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Light bulb -->
-                            <path
-                                d="M24 6C18 6 14 10 14 16C14 20 16 22 18 26C18 26 18 30 18 32C18 34 20 36 22 36H26C28 36 30 34 30 32C30 30 30 26 30 26C32 22 34 20 34 16C34 10 30 6 24 6Z"
-                                stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                            <!-- Base -->
-                            <path d="M20 36V38C20 40 21 42 24 42C27 42 28 40 28 38V36" stroke="currentColor"
-                                stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                            <!-- Light rays -->
-                            <path d="M24 2V6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M10 10L13 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M38 10L35 13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M6 24H10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                            <path d="M38 24H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="bento-wide-content">
-                        <h3>학습과학 기반</h3>
-                        <p>검증된 뇌과학 연구 결과를 바탕으로 설계된 학습 시스템으로,<br>기억 효율을 극대화합니다</p>
-                    </div>
-                    <div class="bento-stats">
-                        <div class="mini-stat">
-                            <span class="mini-stat-number">97%</span>
-                            <span class="mini-stat-label">기억 정착률</span>
+        <!-- Evidence Section -->
+        <section class="section evidence-section" id="evidence">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">근거가 <span class="text-gradient">있습니다</span></h2>
+                <div class="evidence-grid">
+                    <div class="evidence-card animate-on-scroll">
+                        <div class="evidence-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><path d="M8 8H40V40H8V8Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M16 20H32M16 28H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
                         </div>
-                        <div class="mini-stat">
-                            <span class="mini-stat-number">3x</span>
-                            <span class="mini-stat-label">학습 효율</span>
+                        <div class="evidence-tag">연구</div>
+                        <h3>학습 시간 ~30% 단축</h3>
+                        <p>통합 포맷 학습이 분산 학습 대비 학습 시간을 약 30% 줄인다는 연구 결과에 기반합니다.</p>
+                    </div>
+                    <div class="evidence-card animate-on-scroll">
+                        <div class="evidence-icon">
+                            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L6 14V24C6 35 14 43 24 44C34 43 42 35 42 24V14L24 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 24L22 28L30 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
+                        <div class="evidence-tag">특허</div>
+                        <h3>시맨틱 기반 자동 매핑</h3>
+                        <p>출원번호: 10-2026-0000665<br>AI 기반 콘텐츠 자동 연결 시스템</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Video Preview Section -->
-    <section class="video-preview">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">영상으로 미리 만나보기</h2>
-            <p class="video-subtitle animate-on-scroll">NeuroLearn이 제공하는 혁신적인 학습 경험을 영상으로 확인하세요</p>
-            <div class="video-wrapper glass-card animate-on-scroll">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="NeuroLearn 소개 영상" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="process" id="process">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">스마트한 학습 여정</h2>
-            <div class="process-timeline">
-                <div class="process-step glass-card animate-on-scroll">
-                    <div class="step-number">1</div>
-                    <h4>진단 테스트</h4>
-                    <p>현재 실력 파악</p>
-                </div>
-                <div class="process-connector animate-on-scroll">
-                    <div class="connector-line"></div>
-                    <div class="connector-dot"></div>
-                </div>
-                <div class="process-step glass-card animate-on-scroll">
-                    <div class="step-number">2</div>
-                    <h4>맞춤 커리큘럼</h4>
-                    <p>AI 학습 경로 생성</p>
-                </div>
-                <div class="process-connector animate-on-scroll">
-                    <div class="connector-line"></div>
-                    <div class="connector-dot"></div>
-                </div>
-                <div class="process-step glass-card animate-on-scroll">
-                    <div class="step-number">3</div>
-                    <h4>학습 & 복습</h4>
-                    <p>과학적 반복 학습</p>
-                </div>
-                <div class="process-connector animate-on-scroll">
-                    <div class="connector-line"></div>
-                    <div class="connector-dot"></div>
-                </div>
-                <div class="process-step glass-card animate-on-scroll">
-                    <div class="step-number highlight-step">4</div>
-                    <h4>합격</h4>
-                    <p>목표 달성</p>
+        <!-- FAQ Section -->
+        <section class="section faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">자주 묻는 <span class="text-gradient">질문</span></h2>
+                <div class="faq-list">
+                    <details class="faq-item animate-on-scroll">
+                        <summary>NeuroLearn은 어떤 서비스인가요?</summary>
+                        <p>AI가 학습자의 취약점을 자동 진단하고, 교재/영상을 자동 연결하며, 망각곡선 기반 최적 복습 스케줄을 설계하는 스마트 자격증 학습 플랫폼입니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>어떤 자격증을 지원하나요?</summary>
+                        <p>현재 컴퓨터활용능력 2급 실기(엑셀)에 특화되어 있으며, 향후 정보보안기사, 워드프로세서 등으로 확장할 예정입니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>개인 정보는 안전한가요?</summary>
+                        <p>소셜 로그인 기반으로 최소한의 정보만 수집하며, 결제는 외부 전문 PG를 통해 안전하게 처리됩니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>모바일에서도 사용할 수 있나요?</summary>
+                        <p>PWA(Progressive Web App) 방식으로, 별도 앱 설치 없이 모바일 브라우저에서 바로 사용할 수 있습니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>언제 오픈하나요?</summary>
+                        <p>2026년 7월 정식 오픈 예정입니다. 미리 체험 예약을 하시면 오픈 시 가장 먼저 초대해 드립니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>무료로 사용할 수 있나요?</summary>
+                        <p>기본 진단과 학습 경로 설계는 무료입니다. 프리미엄 콘텐츠와 심화 분석은 유료 플랜에서 제공됩니다.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary>문의는 어떻게 하나요?</summary>
+                        <p>하단의 문의하기 버튼 또는 ai.nomad@neurolearn.co.kr로 언제든 연락해 주세요.</p>
+                    </details>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Section -->
-    <section class="stats" id="stats">
-        <div class="container">
-            <h2 class="stats-title animate-on-scroll">뉴로런의 약속</h2>
-            <div class="stats-grid">
-                <div class="stat-item glass-card animate-on-scroll">
-                    <div class="stat-number glow-text" data-count="-20">0</div>
-                    <div class="stat-suffix">% 이상</div>
-                    <div class="stat-label">학습시간 단축 목표</div>
-                    <div class="stat-description">기존 학습법 대비</div>
-                </div>
-                <div class="stat-item glass-card animate-on-scroll">
-                    <div class="stat-icon">
-                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="8" y="12" width="48" height="40" rx="6" stroke="currentColor" stroke-width="3" />
-                            <circle cx="24" cy="28" r="4" fill="currentColor" />
-                            <circle cx="40" cy="28" r="4" fill="currentColor" />
-                            <path d="M22 42C22 42 27 48 32 48C37 48 42 42 42 42" stroke="currentColor" stroke-width="3"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div class="stat-label">AI 복습 스케줄</div>
-                    <div class="stat-description">망각곡선 최적화 자동 관리</div>
-                </div>
-                <div class="stat-item glass-card animate-on-scroll">
-                    <div class="stat-number glow-text" data-count="2000">0</div>
-                    <div class="stat-suffix">+</div>
-                    <div class="stat-label">통합 콘텐츠</div>
-                    <div class="stat-description">문제/영상/교재 데이터</div>
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-card animate-on-scroll">
+                    <h2>탐색은 AI에게,<br>학습은 나에게</h2>
+                    <p>2026년 7월 오픈 예정. 지금 예약하면 가장 먼저 만나보실 수 있습니다.</p>
+                    <button class="btn btn-primary btn-lg" onclick="showTrialModal()">
+                        미리 체험 예약하기
+                        <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section" id="timeline">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">런칭 로드맵</h2>
-            <div class="timeline">
-                <div class="timeline-item active animate-on-scroll">
-                    <div class="timeline-date">2026.01</div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-badge">NOW</div>
-                        <h4>베타테스터 모집</h4>
-                        <p>얼리어답터 모집 중</p>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-date">2026.06</div>
-                    <div class="timeline-content glass-card">
-                        <h4>베타서비스 오픈</h4>
-                        <p>컴활 2급</p>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll">
-                    <div class="timeline-date">2026.12</div>
-                    <div class="timeline-content glass-card">
-                        <h4>컴활 2급 정식서비스 오픈</h4>
-                        <p>컴활 1급 베타 오픈</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-bg">
-            <div class="cta-gradient"></div>
-        </div>
-        <div class="container">
-            <h2 class="cta-title animate-on-scroll">지금 바로 시작하세요</h2>
-            <p class="cta-description animate-on-scroll">
-                뇌과학 기반 학습으로 합격까지의 시간을 단축하세요
-            </p>
-            <button type="button" class="cta-button-large glow-button" onclick="showModal()">
-                학습 시작하기
-                <span class="arrow" aria-hidden="true">→</span>
-            </button>
-        </div>
-    </section>
+        </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn Logo" class="logo-image">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-image footer-logo-img" width="120" height="36">
+                    <p>AI와 학습과학으로 만드는 스마트 합격 플랫폼</p>
                 </div>
-                <p class="footer-text">AI와 학습과학으로 만드는 스마트 합격 플랫폼</p>
-                <p class="footer-copyright">© 2026 뉴로런. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" onclick="showContactModal(); return false;">문의하기</a>
+                    <span class="footer-sep">|</span>
+                    <a href="#">이용약관</a>
+                    <span class="footer-sep">|</span>
+                    <a href="#">개인정보처리방침</a>
+                </div>
+                <p class="footer-copyright">&copy; 2026 NeuroLearn. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="modal-content glass-card">
-            <button type="button" class="modal-close" onclick="closeModal()" aria-label="모달 닫기">&times;</button>
-            <div class="modal-icon" aria-hidden="true">🚀</div>
-            <h3 id="modal-title">곧 만나요!</h3>
-            <p>NeuroLearn은 현재 베타 테스트를 준비 중입니다.<br>
-                더 나은 학습 경험을 위해 열심히 개발하고 있습니다.</p>
-            <div class="modal-info">
-                <p><strong>오픈 예정:</strong> 2026년 6월</p>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf90sI8ij0icbDs2gpheEBlH1IHZgIHFv7cpqXsetnYtzDISg/viewform?usp=header"
-                target="_blank" class="modal-button glow-button">
-                제일 먼저 만나보기 ✨
-            </a>
+    <!-- Trial Modal (Coming Soon) -->
+    <div id="trialModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="trial-modal-title">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeTrialModal()" aria-label="닫기">&times;</button>
+            <div class="modal-badge">2026년 7월 오픈 예정</div>
+            <h3 id="trial-modal-title">미리 체험 예약하기</h3>
+            <p>오픈과 동시에 가장 먼저 초대해 드립니다.<br>이메일을 남겨주세요!</p>
+            <form class="modal-form" onsubmit="submitReservation(event)">
+                <input type="email" id="reserveEmail" placeholder="이메일 주소를 입력하세요" required autocomplete="email">
+                <button type="submit" class="btn btn-primary btn-block">예약하기</button>
+            </form>
+            <p class="modal-note">스팸 없이, 오픈 소식만 전해드립니다.</p>
         </div>
     </div>
 
     <!-- Contact Modal -->
-    <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
-        <div class="modal-content glass-card">
-            <button type="button" class="modal-close" onclick="closeContactModal()" aria-label="모달 닫기">&times;</button>
-            <div class="modal-icon" aria-hidden="true">📧</div>
-            <h3 id="contact-modal-title">Contact Us</h3>
-            <p>궁금하신 점이 있으신가요?<br>언제든지 문의해 주세요!</p>
-            <div class="modal-info">
-                <p class="email-address">ai.nomad@neurolearn.co.kr</p>
-            </div>
-            <button type="button" class="modal-button glow-button" onclick="copyEmail()">
-                <span aria-hidden="true">📋</span> 이메일 복사하기
-            </button>
-            <div class="email-alternatives">
-                <p class="alternatives-title">메일 보내기:</p>
-                <div class="webmail-buttons">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank"
-                        class="webmail-link gmail" rel="noopener noreferrer">
-                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#icon-email"></use>
-                        </svg>
-                        Gmail로 보내기
-                    </a>
-                    <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr"
-                        target="_blank" class="webmail-link outlook" rel="noopener noreferrer">
-                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#icon-email"></use>
-                        </svg>
-                        Outlook으로 보내기
-                    </a>
-                    <a href="mailto:ai.nomad@neurolearn.co.kr" class="webmail-link default">
-                        <svg class="webmail-icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#icon-email-outline"></use>
-                        </svg>
-                        기본 메일 앱
-                    </a>
-                </div>
+    <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeContactModal()" aria-label="닫기">&times;</button>
+            <h3 id="contact-modal-title">문의하기</h3>
+            <p>궁금하신 점이 있으면 언제든 연락해 주세요.</p>
+            <div class="contact-email">ai.nomad@neurolearn.co.kr</div>
+            <button class="btn btn-outline btn-block" onclick="copyEmail()">이메일 복사하기</button>
+            <div class="contact-links">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Gmail</a>
+                <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Outlook</a>
+                <a href="mailto:ai.nomad@neurolearn.co.kr" class="btn btn-ghost btn-sm">기본 메일</a>
             </div>
         </div>
     </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-msg">복사되었습니다</span></div>
 
     <script src="script.js"></script>
 </body>
