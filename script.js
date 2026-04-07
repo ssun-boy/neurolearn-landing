@@ -16,7 +16,7 @@ function initTheme() {
 }
 
 function updateLogo(isDark) {
-    document.querySelectorAll('.logo-image').forEach(img => {
+    document.querySelectorAll('.logo-img').forEach(img => {
         img.src = isDark
             ? 'assets/images/neurolearn-logo-dark.jpg'
             : 'assets/images/neurolearn-logo.png';
@@ -24,7 +24,7 @@ function updateLogo(isDark) {
 }
 
 // ========================================
-// Trial Modal (Coming Soon)
+// Trial Modal
 // ========================================
 function showTrialModal() {
     document.getElementById('trialModal').classList.add('active');
@@ -45,32 +45,28 @@ function submitReservation(e) {
     const email = document.getElementById('reserveEmail').value;
     if (!email) return;
 
-    // Replace form with success message
-    const card = e.target.closest('.modal-card');
-    const badge = card.querySelector('.modal-badge');
+    const card = e.target.closest('.modal-box');
+    const badge = card.querySelector('.modal-badge-pill');
     const title = card.querySelector('h3');
     const desc = card.querySelector('p');
     const form = card.querySelector('.modal-form');
-    const note = card.querySelector('.modal-note');
+    const note = card.querySelector('.modal-small');
 
-    if (badge) badge.textContent = '예약 완료!';
-    if (badge) badge.style.background = 'linear-gradient(135deg, #22C55E, #34D399)';
+    if (badge) { badge.textContent = '예약 완료!'; badge.style.background = 'linear-gradient(135deg, #22C55E, #34D399)'; }
     if (title) title.textContent = '감사합니다!';
     if (desc) desc.innerHTML = '오픈 시 <strong>' + escapeHtml(email) + '</strong>으로<br>가장 먼저 초대해 드리겠습니다.';
     if (form) form.style.display = 'none';
     if (note) note.textContent = '2026년 7월, 기대해 주세요!';
 
-    // Track event
-    console.log('Reservation:', email);
     if (typeof gtag === 'function') {
         gtag('event', 'reservation', { event_category: 'signup', event_label: email });
     }
 }
 
 function escapeHtml(str) {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
 }
 
 // ========================================
@@ -97,69 +93,83 @@ function copyEmail() {
 // ========================================
 // Toast
 // ========================================
-function showToast(msg, duration = 2500) {
-    const toast = document.getElementById('toast');
-    if (!toast) return;
-    const msgEl = toast.querySelector('.toast-msg');
-    if (msgEl) msgEl.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), duration);
+function showToast(msg, dur) {
+    dur = dur || 2500;
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), dur);
 }
 
 // ========================================
-// Close modals
+// Modal close
 // ========================================
-window.addEventListener('click', (e) => {
+window.addEventListener('click', function(e) {
     if (e.target.classList.contains('modal-overlay')) {
         closeTrialModal();
         closeContactModal();
     }
 });
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeTrialModal();
-        closeContactModal();
-    }
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeTrialModal(); closeContactModal(); }
 });
 
 // ========================================
-// Scroll Animations
+// Result Tabs
 // ========================================
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+function initTabs() {
+    var tabs = document.querySelectorAll('.tab');
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var target = this.getAttribute('data-tab');
+            // Deactivate all
+            document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+            document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+            // Activate
+            this.classList.add('active');
+            var panel = document.getElementById('panel-' + target);
+            if (panel) panel.classList.add('active');
+        });
+    });
+}
+
+// ========================================
+// Scroll Reveal
+// ========================================
+var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
 // ========================================
 // Init
 // ========================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     initTheme();
+    initTabs();
 
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(function(el) {
+        revealObserver.observe(el);
+    });
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            var t = document.querySelector(this.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });
 
-    // Header shadow on scroll
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 50) {
-            header.style.boxShadow = '0 1px 12px rgba(0,0,0,0.06)';
-        } else {
-            header.style.boxShadow = 'none';
-        }
+    // Header shadow
+    var header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        header.style.boxShadow = window.pageYOffset > 50
+            ? '0 1px 12px rgba(0,0,0,0.06)'
+            : 'none';
     });
 });
