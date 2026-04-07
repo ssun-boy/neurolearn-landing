@@ -20,18 +20,33 @@
     <!-- HEADER -->
     <header class="header">
         <nav class="header-nav">
-            <a href="/" class="logo">
-                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img">
-            </a>
+            <div class="header-left">
+                <a href="/" class="logo">
+                    <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img">
+                </a>
+                <span class="beta-badge">BETA</span>
+            </div>
             <div class="header-right">
                 <button class="btn-icon" onclick="toggleTheme()" aria-label="테마 변경">
                     <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                     <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
                 </button>
-                <a href="#" class="header-login" onclick="showTrialModal();return false;">로그인</a>
-                <button class="btn-violet-sm" onclick="showTrialModal()">무료 체험</button>
+                <a href="#" class="header-login desktop-only" onclick="showTrialModal();return false;">로그인</a>
+                <button class="btn-violet-sm desktop-only" onclick="showTrialModal()">무료 체험</button>
+                <button class="hamburger" onclick="toggleMobileMenu()" aria-label="메뉴">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </button>
             </div>
         </nav>
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#problem" onclick="closeMobileMenu()">문제</a>
+            <a href="#pipeline" onclick="closeMobileMenu()">작동 원리</a>
+            <a href="#result" onclick="closeMobileMenu()">결과 미리보기</a>
+            <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+            <a href="#" onclick="showTrialModal();closeMobileMenu();return false;">로그인</a>
+            <button class="btn-violet btn-full" onclick="showTrialModal();closeMobileMenu()">무료 체험</button>
+        </div>
     </header>
 
     <main>
@@ -39,7 +54,7 @@
     <!-- HERO (min-h-screen) -->
     <section class="hero">
         <div class="hero-inner">
-            <p class="hero-eyebrow sr" data-d="0">학습 탐색시간 Zero</p>
+            <p class="hero-eyebrow sr" data-d="0">학습 탐색시간을 <span class="grad-text">Zero</span></p>
             <h1 class="hero-h1 sr" data-d="0.1">학습 탐색시간을 제로로</h1>
             <p class="hero-tagline sr" data-d="0.2">AI가 도와드릴게요.<br>학습에만 전념하세요.</p>
             <p class="hero-desc sr" data-d="0.3">자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.<br>AI가 대신 찾아주니까, 당신은 배움에만 집중하세요.</p>
@@ -132,17 +147,61 @@
             <p class="sub sr">시험을 마치면 AI가 즉시 채점하고, 어디가 약한지,<br>다음에 뭘 공부할지까지 알려줍니다.</p>
             <div class="result-card sr">
                 <div class="result-top">
+                    <div class="result-meta">
+                        <span>응시일: 2026.04.03</span>
+                        <span>소요시간: 32분 15초</span>
+                    </div>
                     <div class="result-score"><span class="score-big">62</span><span class="score-of"> / 100</span></div>
                     <p class="result-status">합격 가능성 높음</p>
                     <p class="result-insight">합격까지 단 8점 — 취약 영역인 조건부 서식만 보완하면 안정권에 진입할 수 있습니다.</p>
                 </div>
                 <div class="result-tabs">
-                    <button class="rtab active" data-tab="summary">3줄 요약</button>
-                    <button class="rtab" data-tab="area">영역별 결과</button>
-                    <button class="rtab" data-tab="detail">문제별 학습</button>
+                    <button class="rtab active" data-tab="gauge">🎯 점수 게이지</button>
+                    <button class="rtab" data-tab="position">📊 점수 위치</button>
+                    <button class="rtab" data-tab="summary">📋 3줄 요약</button>
+                    <button class="rtab" data-tab="area">📈 영역별 결과</button>
+                    <button class="rtab" data-tab="detail">🔍 문제별 학습</button>
                 </div>
                 <div class="rtab-panels">
-                    <div class="rtab-panel active" id="p-summary">
+                    <div class="rtab-panel active" id="p-gauge">
+                        <div class="gauge-wrap">
+                            <div class="gauge-circle">
+                                <svg viewBox="0 0 120 120" width="120" height="120">
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--bdr)" stroke-width="10"/>
+                                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                                        stroke-dasharray="326.73" stroke-dashoffset="124.16"
+                                        stroke-linecap="round" transform="rotate(-90 60 60)"
+                                        style="transition:stroke-dashoffset .8s ease"/>
+                                </svg>
+                                <div class="gauge-label"><span class="gauge-num">62</span><span class="gauge-unit">점</span></div>
+                            </div>
+                            <div class="gauge-info">
+                                <p class="gauge-status pass">합격 가능성 높음</p>
+                                <p class="gauge-detail">합격선 70점까지 <strong>8점</strong> 남았습니다.<br>조건부 서식 영역만 보완하면 안정권입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rtab-panel" id="p-position">
+                        <div class="position-wrap">
+                            <p class="position-title">전체 응시자 중 나의 위치</p>
+                            <div class="position-bar-wrap">
+                                <div class="position-bar">
+                                    <div class="position-fill" style="width:62%"></div>
+                                    <div class="position-marker" style="left:62%">
+                                        <span class="position-you">나</span>
+                                    </div>
+                                    <div class="position-pass-line" style="left:70%">
+                                        <span class="position-pass-label">합격선</span>
+                                    </div>
+                                </div>
+                                <div class="position-labels">
+                                    <span>0</span><span>상위 38%</span><span>100</span>
+                                </div>
+                            </div>
+                            <p class="position-desc">현재 상위 <strong>38%</strong> 위치입니다. 합격선(70점)까지 8점 남았습니다.</p>
+                        </div>
+                    </div>
+                    <div class="rtab-panel" id="p-summary">
                         <div class="sum-list">
                             <div class="sum-row"><span class="dot green"></span>함수 활용 영역 만점 (20/20)</div>
                             <div class="sum-row"><span class="dot red"></span>조건부 서식 영역 가장 취약 (5/20)</div>
@@ -268,12 +327,18 @@
             <h2 class="h2 sr">기술적 근거.</h2>
             <div class="evi-grid">
                 <div class="evi-card sr" data-d="0">
+                    <div class="evi-icon blue">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></svg>
+                    </div>
                     <p class="evi-tag blue">핵심 논문</p>
                     <h3>학습 시간 ~30% 단축</h3>
                     <blockquote>"통합 형식(integrated format)으로 학습 자료를 제시했을 때, 학습시간이 약 30% 감소했다."</blockquote>
                     <cite>Chandler, P. &amp; Sweller, J. (1991). <em>Cognition and Instruction</em>.</cite>
                 </div>
                 <div class="evi-card sr" data-d="0.15">
+                    <div class="evi-icon violet">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </div>
                     <p class="evi-tag violet">특허 출원</p>
                     <h3>의미 기반 자동 매핑 시스템</h3>
                     <p class="evi-code">출원번호: 10-2026-0000665</p>
@@ -321,10 +386,16 @@
                 <a href="#">이용약관</a>
                 <a href="#">개인정보처리방침</a>
                 <a href="#" onclick="showContactModal();return false;">문의하기</a>
+                <a href="#">제작자</a>
             </div>
             <p class="footer-copy">&copy; 2026 NeuroLearn. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- MOBILE FLOATING CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <button class="btn-violet btn-full" onclick="showTrialModal()">3분 체험 시작</button>
+    </div>
 
     <!-- TRIAL MODAL -->
     <div id="trialModal" class="modal-bg" role="dialog" aria-modal="true">
