@@ -1,482 +1,419 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼 NeuroLearn - 학습 탐색시간을 제로로">
-    <meta name="keywords" content="자격증, 학습, AI, 뇌과학, 망각곡선, 맞춤학습, 컴활">
     <title>NeuroLearn - 학습 탐색시간을 제로로</title>
-
     <link rel="canonical" href="https://www.neurolearn.co.kr">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.neurolearn.co.kr">
     <meta property="og:title" content="NeuroLearn - 학습 탐색시간을 제로로">
-    <meta property="og:description" content="AI가 도와드릴게요. 학습에만 전념하세요. 자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.">
+    <meta property="og:description" content="AI가 도와드릴게요. 학습에만 전념하세요.">
     <meta property="og:locale" content="ko_KR">
-    <meta name="twitter:card" content="summary_large_image">
-
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <meta name="theme-color" content="#7C3AED">
-
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preload" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-    </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "NeuroLearn",
-        "applicationCategory": "EducationalApplication",
-        "url": "https://www.neurolearn.co.kr",
-        "description": "AI와 뇌과학 기반의 스마트 자격증 학습 플랫폼",
-        "operatingSystem": "Web",
-        "inLanguage": "ko"
-    }
-    </script>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
 </head>
-
 <body>
     <a href="#main" class="skip-link">본문으로 건너뛰기</a>
 
-    <!-- ===== Header ===== -->
-    <header class="header">
-        <nav class="header-nav container">
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container header-inner">
             <a href="/" class="logo">
-                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img" width="128" height="32">
-                <span class="beta-badge">BETA</span>
+                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img">
+                <span class="badge-beta">BETA</span>
             </a>
-            <div class="header-right">
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="테마 변경">
-                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+            <div class="header-actions">
+                <button class="btn-icon" onclick="toggleTheme()" aria-label="테마 변경">
+                    <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
                 </button>
-                <a href="#" class="nav-link-login" onclick="showTrialModal(); return false;">로그인</a>
-                <button class="btn-violet" onclick="showTrialModal()">무료 체험</button>
+                <a href="#" class="header-login" onclick="showTrialModal(); return false;">로그인</a>
+                <button class="btn-primary-sm" onclick="showTrialModal()">무료 체험</button>
             </div>
-        </nav>
+        </div>
     </header>
 
     <main id="main">
 
-        <!-- ===== Hero ===== -->
-        <section class="hero-section">
-            <div class="container hero-inner">
-                <p class="hero-eyebrow reveal">학습 탐색시간 Zero</p>
-                <h1 class="hero-heading reveal">AI가 도와드릴게요.<br>학습에만 전념하세요.</h1>
-                <p class="hero-sub reveal">자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.<br>AI가 대신 찾아주니까, 당신은 배움에만 집중하세요.</p>
-                <div class="hero-cta reveal">
-                    <button class="btn-violet btn-lg" onclick="showTrialModal()">3분 체험 시작</button>
-                    <a href="#pipeline" class="btn-outline btn-lg">작동 원리 보기</a>
+    <!-- ===== HERO ===== -->
+    <section class="sec-hero">
+        <div class="container">
+            <p class="hero-eyebrow sr" data-delay="0">학습 탐색시간 Zero</p>
+            <h1 class="hero-h1 sr" data-delay="0.1">AI가 도와드릴게요.<br>학습에만 전념하세요.</h1>
+            <p class="hero-desc sr" data-delay="0.2">자격증 학습의 절반은 '공부'가 아니라 '찾는 시간'입니다.<br>AI가 대신 찾아주니까, 당신은 배움에만 집중하세요.</p>
+            <div class="hero-buttons sr" data-delay="0.3">
+                <button class="btn-primary" onclick="showTrialModal()">3분 체험 시작</button>
+                <a href="#pipeline" class="btn-outline">작동 원리 보기</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROBLEM ===== -->
+    <section class="sec-problem" id="problem">
+        <div class="container">
+            <p class="sec-eyebrow sr">탐색시간의 실체</p>
+            <h2 class="sec-h2 sr">이런 경험, 없으셨나요?</h2>
+            <p class="sec-sub sr">하루 5시간 공부 중 2시간은 '탐색'에 소모됩니다.</p>
+
+            <div class="pain-table sr">
+                <div class="pain-row">
+                    <div class="pain-cell pain-label">뭘 모르는지 모름</div>
+                    <div class="pain-cell pain-desc">"전 범위를 다시 풀어보는 수밖에..."</div>
+                    <div class="pain-cell pain-time">50분</div>
+                </div>
+                <div class="pain-row">
+                    <div class="pain-cell pain-label">교재 찾기</div>
+                    <div class="pain-cell pain-desc">"이 함수 설명이 교재 어디에 있지?"</div>
+                    <div class="pain-cell pain-time">30분</div>
+                </div>
+                <div class="pain-row">
+                    <div class="pain-cell pain-label">영상 찾기</div>
+                    <div class="pain-cell pain-desc">"이 부분 설명하는 강의가 몇 분대지?"</div>
+                    <div class="pain-cell pain-time">20분</div>
+                </div>
+                <div class="pain-row">
+                    <div class="pain-cell pain-label">다음 할 일 고민</div>
+                    <div class="pain-cell pain-desc">"오늘은 뭘 공부해야 하지..."</div>
+                    <div class="pain-cell pain-time">15분</div>
+                </div>
+                <div class="pain-row">
+                    <div class="pain-cell pain-label">합격 가능성 불안</div>
+                    <div class="pain-cell pain-desc">"지금 수준이면 합격할 수 있나?"</div>
+                    <div class="pain-cell pain-time">5분</div>
                 </div>
             </div>
-        </section>
-
-        <!-- ===== Problem ===== -->
-        <section class="section bg-alt" id="problem">
-            <div class="container">
-                <h2 class="heading-2 reveal">이런 경험, 없으셨나요?</h2>
-                <p class="sub-text reveal">하루 5시간 공부 중 2시간은 '탐색'에 소모됩니다.</p>
-                <div class="pain-grid">
-                    <div class="pain-card reveal">
-                        <div class="pain-time">50분</div>
-                        <div class="pain-label">뭘 모르는지 모름</div>
-                        <p class="pain-desc">"전 범위를 다시 풀어보는 수밖에..."</p>
-                    </div>
-                    <div class="pain-card reveal">
-                        <div class="pain-time">30분</div>
-                        <div class="pain-label">교재 찾기</div>
-                        <p class="pain-desc">"이 함수 설명이 교재 어디에 있지?"</p>
-                    </div>
-                    <div class="pain-card reveal">
-                        <div class="pain-time">20분</div>
-                        <div class="pain-label">영상 찾기</div>
-                        <p class="pain-desc">"이 부분 설명하는 강의가 몇 분대지?"</p>
-                    </div>
-                    <div class="pain-card reveal">
-                        <div class="pain-time">15분</div>
-                        <div class="pain-label">다음 할 일 고민</div>
-                        <p class="pain-desc">"오늘은 뭘 공부해야 하지..."</p>
-                    </div>
-                    <div class="pain-card reveal">
-                        <div class="pain-time">5분</div>
-                        <div class="pain-label">합격 가능성 불안</div>
-                        <p class="pain-desc">"지금 수준이면 합격할 수 있나?"</p>
-                    </div>
-                </div>
-                <div class="pain-total reveal">
-                    <span>하루 탐색시간</span>
-                    <strong>약 2시간</strong>
-                </div>
+            <div class="pain-total sr">
+                <span>하루 탐색시간</span>
+                <strong>약 2시간</strong>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== Pipeline (5 Features) ===== -->
-        <section class="section" id="pipeline">
-            <div class="container">
-                <h2 class="heading-2 reveal">AI가 제로화하는 5가지 탐색.</h2>
-                <p class="sub-text reveal">찾는 시간을 없애고, 배우는 시간만 남깁니다.</p>
-                <div class="pipeline-list">
-                    <div class="pipeline-card reveal" onclick="showTrialModal()">
-                        <div class="pipeline-num">01</div>
-                        <div class="pipeline-body">
-                            <h3>약점 자동 진단</h3>
-                            <p>뭘 모르는지 AI가 즉시 파악합니다</p>
-                            <div class="pipeline-metric"><span class="metric-old">자가진단 3시간</span><span class="metric-arrow">&rarr;</span><span class="metric-new">AI 진단 0.8초</span></div>
-                        </div>
-                        <span class="pipeline-link">체험하기 &rarr;</span>
+    <!-- ===== PIPELINE ===== -->
+    <section class="sec-pipeline" id="pipeline">
+        <div class="container">
+            <p class="sec-eyebrow sr">AI 자동화 5단계</p>
+            <h2 class="sec-h2 sr">AI가 제로화하는 5가지 탐색.</h2>
+            <p class="sec-sub sr">찾는 시간을 없애고, 배우는 시간만 남깁니다.</p>
+
+            <div class="pipeline-list">
+                <div class="pipeline-card sr" data-delay="0" onclick="showTrialModal()">
+                    <div class="pipeline-num"><span>1</span></div>
+                    <div class="pipeline-body">
+                        <h3>약점 자동 진단</h3>
+                        <p>뭘 모르는지 AI가 즉시 파악합니다. 전 범위를 다시 풀 필요 없습니다.</p>
                     </div>
-                    <div class="pipeline-card reveal" onclick="showTrialModal()">
-                        <div class="pipeline-num">02</div>
-                        <div class="pipeline-body">
-                            <h3>콘텐츠 자동 연결</h3>
-                            <p>교재 &middot; 영상 &middot; 문제를 AI가 자동 매핑합니다</p>
-                            <div class="pipeline-metric"><span class="metric-old">검색 40분</span><span class="metric-arrow">&rarr;</span><span class="metric-new">자동 매핑 0초</span></div>
-                        </div>
-                        <span class="pipeline-link">체험하기 &rarr;</span>
-                    </div>
-                    <div class="pipeline-card reveal" onclick="showTrialModal()">
-                        <div class="pipeline-num">03</div>
-                        <div class="pipeline-body">
-                            <h3>최적 시작점 제시</h3>
-                            <p>지금 수준에 맞는 학습 출발점을 AI가 제시합니다</p>
-                            <div class="pipeline-metric"><span class="metric-old">고민 30분</span><span class="metric-arrow">&rarr;</span><span class="metric-new">즉시 안내</span></div>
-                        </div>
-                        <span class="pipeline-link">체험하기 &rarr;</span>
-                    </div>
-                    <div class="pipeline-card reveal" onclick="showTrialModal()">
-                        <div class="pipeline-num">04</div>
-                        <div class="pipeline-body">
-                            <h3>학습 경로 자동 설계</h3>
-                            <p>다음에 뭘 해야 할지 AI가 실시간으로 조정합니다</p>
-                            <div class="pipeline-metric"><span class="metric-old">매일 고민 20분</span><span class="metric-arrow">&rarr;</span><span class="metric-new">AI 자동 제안</span></div>
-                        </div>
-                        <span class="pipeline-link">체험하기 &rarr;</span>
-                    </div>
-                    <div class="pipeline-card reveal" onclick="showTrialModal()">
-                        <div class="pipeline-num">05</div>
-                        <div class="pipeline-body">
-                            <h3>합격 확률 시각화</h3>
-                            <p>감이 아닌 데이터로 합격까지 남은 갭을 보여줍니다</p>
-                            <div class="pipeline-metric"><span class="metric-old">감에 의존</span><span class="metric-arrow">&rarr;</span><span class="metric-new">데이터 기반</span></div>
-                        </div>
-                        <span class="pipeline-link">체험하기 &rarr;</span>
+                    <div class="pipeline-metric">
+                        <span class="m-old">자가진단 3시간</span>
+                        <span class="m-arrow">&rarr;</span>
+                        <span class="m-new">AI 진단 0.8초</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== Result Preview ===== -->
-        <section class="section bg-alt" id="result">
-            <div class="container">
-                <h2 class="heading-2 reveal">AI가 찾아준 결과</h2>
-                <p class="sub-text reveal">채점부터 약점 분석까지, 한 화면에.</p>
-                <p class="sub-text-sm reveal">시험을 마치면 AI가 즉시 채점하고, 어디가 약한지,<br>다음에 뭘 공부할지까지 알려줍니다. 탐색할 필요 없이 &mdash; 결과가 바로 여기에.</p>
-
-                <div class="result-card reveal">
-                    <!-- Score Header -->
-                    <div class="result-header">
-                        <div class="result-score-area">
-                            <div class="result-score"><span class="score-big">62</span><span class="score-unit">/100</span></div>
-                            <div class="result-badge badge-yellow">합격 가능성 높음</div>
-                        </div>
-                        <div class="result-meta">응시일 2026.04.03 &middot; 소요시간 32분 15초</div>
+                <div class="pipeline-card sr" data-delay="0.1" onclick="showTrialModal()">
+                    <div class="pipeline-num"><span>2</span></div>
+                    <div class="pipeline-body">
+                        <h3>콘텐츠 자동 연결</h3>
+                        <p>교재 &middot; 영상 &middot; 문제를 AI가 자동 매핑합니다. 직접 찾아 헤맬 필요 없습니다.</p>
                     </div>
-
-                    <!-- Tabs -->
-                    <div class="result-tabs">
-                        <button class="tab active" data-tab="gauge">점수 게이지</button>
-                        <button class="tab" data-tab="position">점수 위치</button>
-                        <button class="tab" data-tab="summary">3줄 요약</button>
-                        <button class="tab" data-tab="area">영역별 결과</button>
-                        <button class="tab" data-tab="detail">문제별 학습</button>
+                    <div class="pipeline-metric">
+                        <span class="m-old">검색 40분</span>
+                        <span class="m-arrow">&rarr;</span>
+                        <span class="m-new">자동 매핑 0초</span>
                     </div>
-
-                    <!-- Tab Content -->
-                    <div class="result-content">
-                        <div class="tab-panel active" id="panel-gauge">
-                            <div class="gauge-visual">
-                                <div class="gauge-bar">
-                                    <div class="gauge-fill" style="width: 62%"></div>
-                                    <div class="gauge-marker" style="left: 70%"><span>합격선 70</span></div>
-                                </div>
-                                <div class="gauge-labels">
-                                    <span>0</span><span>62점</span><span>100</span>
-                                </div>
-                            </div>
-                            <div class="gauge-insight">
-                                <strong>합격까지 단 8점</strong>
-                                <p>취약 영역인 조건부 서식만 보완하면 안정권에 진입할 수 있습니다.</p>
-                            </div>
-                        </div>
-                        <div class="tab-panel" id="panel-position">
-                            <div class="gauge-insight">
-                                <strong>상위 38% 위치</strong>
-                                <p>현재 응시자 평균 55점 대비 7점 높습니다. 합격선까지 8점 남았습니다.</p>
-                            </div>
-                        </div>
-                        <div class="tab-panel" id="panel-summary">
-                            <div class="summary-list">
-                                <div class="summary-item"><span class="dot green"></span>함수 활용 영역 만점 (20/20)</div>
-                                <div class="summary-item"><span class="dot red"></span>조건부 서식 영역 가장 취약 (5/20)</div>
-                                <div class="summary-item"><span class="dot violet"></span>조건부 서식 집중 보완 시 합격 가능성 90% 이상</div>
-                            </div>
-                        </div>
-                        <div class="tab-panel" id="panel-area">
-                            <div class="area-grid">
-                                <div class="area-row"><span>함수 활용</span><div class="area-bar"><div class="area-fill green" style="width:100%"></div></div><span>20/20</span></div>
-                                <div class="area-row"><span>데이터 관리</span><div class="area-bar"><div class="area-fill violet" style="width:75%"></div></div><span>15/20</span></div>
-                                <div class="area-row"><span>차트/매크로</span><div class="area-bar"><div class="area-fill violet" style="width:60%"></div></div><span>12/20</span></div>
-                                <div class="area-row"><span>수식/표시형식</span><div class="area-bar"><div class="area-fill yellow" style="width:50%"></div></div><span>10/20</span></div>
-                                <div class="area-row"><span>조건부 서식</span><div class="area-bar"><div class="area-fill red" style="width:25%"></div></div><span>5/20</span></div>
-                            </div>
-                        </div>
-                        <div class="tab-panel" id="panel-detail">
-                            <div class="gauge-insight">
-                                <strong>AI 연결 콘텐츠</strong>
-                                <p>조건부 서식 &rarr; 교재 p.127~135 &middot; 영상 12:30~15:45</p>
-                                <p>수식/표시형식 &rarr; 교재 p.98~110 &middot; 영상 08:10~11:20</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn-violet btn-block result-cta" onclick="showTrialModal()">나도 진단 받아보기</button>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== Comparison ===== -->
-        <section class="section" id="comparison">
-            <div class="container">
-                <h2 class="heading-2 reveal">탐색시간, 얼마나 줄어들까?</h2>
-                <p class="sub-text reveal">같은 5시간, 전혀 다른 밀도.</p>
-                <div class="comp-table reveal">
-                    <div class="comp-row comp-header">
-                        <div class="comp-cell label-cell">학습 단계</div>
-                        <div class="comp-cell old-cell">기존 방식</div>
-                        <div class="comp-cell new-cell">NeuroLearn</div>
+                <div class="pipeline-card sr" data-delay="0.2" onclick="showTrialModal()">
+                    <div class="pipeline-num"><span>3</span></div>
+                    <div class="pipeline-body">
+                        <h3>최적 시작점 제시</h3>
+                        <p>지금 수준에 맞는 학습 출발점을 AI가 제시합니다.</p>
                     </div>
-                    <div class="comp-row">
-                        <div class="comp-cell label-cell">약점 파악</div>
-                        <div class="comp-cell old-cell">전 범위 반복 50분</div>
-                        <div class="comp-cell new-cell highlight">AI 즉시 진단 0.8초</div>
+                    <div class="pipeline-metric">
+                        <span class="m-old">고민 30분</span>
+                        <span class="m-arrow">&rarr;</span>
+                        <span class="m-new">즉시 안내</span>
                     </div>
-                    <div class="comp-row">
-                        <div class="comp-cell label-cell">교재 연결</div>
-                        <div class="comp-cell old-cell">목차 탐색 30분</div>
-                        <div class="comp-cell new-cell highlight">자동 매핑 0초</div>
+                </div>
+                <div class="pipeline-card sr" data-delay="0.3" onclick="showTrialModal()">
+                    <div class="pipeline-num"><span>4</span></div>
+                    <div class="pipeline-body">
+                        <h3>학습 경로 자동 설계</h3>
+                        <p>다음에 뭘 해야 할지 AI가 실시간으로 조정합니다.</p>
                     </div>
-                    <div class="comp-row">
-                        <div class="comp-cell label-cell">영상 연결</div>
-                        <div class="comp-cell old-cell">타임라인 탐색 20분</div>
-                        <div class="comp-cell new-cell highlight">정확한 시점 연결</div>
+                    <div class="pipeline-metric">
+                        <span class="m-old">매일 고민 20분</span>
+                        <span class="m-arrow">&rarr;</span>
+                        <span class="m-new">AI 자동 제안</span>
                     </div>
-                    <div class="comp-row">
-                        <div class="comp-cell label-cell">학습 계획</div>
-                        <div class="comp-cell old-cell">매일 고민 15분</div>
-                        <div class="comp-cell new-cell highlight">AI 자동 생성</div>
+                </div>
+                <div class="pipeline-card sr" data-delay="0.4" onclick="showTrialModal()">
+                    <div class="pipeline-num"><span>5</span></div>
+                    <div class="pipeline-body">
+                        <h3>합격 확률 시각화</h3>
+                        <p>감이 아닌 데이터로 합격까지 남은 갭을 보여줍니다.</p>
                     </div>
-                    <div class="comp-row">
-                        <div class="comp-cell label-cell">합격 예측</div>
-                        <div class="comp-cell old-cell">불안감 5분</div>
-                        <div class="comp-cell new-cell highlight">데이터 기반 확률</div>
-                    </div>
-                    <div class="comp-row comp-total">
-                        <div class="comp-cell label-cell"><strong>하루 탐색시간</strong></div>
-                        <div class="comp-cell old-cell"><strong>~2시간</strong></div>
-                        <div class="comp-cell new-cell highlight"><strong>~0분</strong></div>
+                    <div class="pipeline-metric">
+                        <span class="m-old">감에 의존</span>
+                        <span class="m-arrow">&rarr;</span>
+                        <span class="m-new">데이터 기반</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== Team ===== -->
-        <section class="section bg-alt" id="team">
-            <div class="container">
-                <h2 class="heading-2 reveal">만드는 사람들.</h2>
-                <div class="team-grid">
-                    <div class="team-card reveal">
-                        <div class="team-avatar">B</div>
-                        <div class="team-role">CPO</div>
-                        <h3>Bobby</h3>
-                        <p class="team-quote">"20년간 플랫폼을 만들며 '사용자가 진짜 쓰는 서비스'를 고민해왔습니다."</p>
-                        <div class="team-details">
-                            <span>성균관대학교 글로벌 창업대학원 석사</span>
-                            <span>AI 기반 플랫폼 서비스 기획/운영 20년</span>
+    <!-- ===== RESULT PREVIEW ===== -->
+    <section class="sec-result" id="result">
+        <div class="container">
+            <p class="sec-eyebrow sr">결과 미리보기</p>
+            <h2 class="sec-h2 sr">AI가 찾아준 결과</h2>
+            <p class="sec-sub sr">채점부터 약점 분석까지, 한 화면에.</p>
+            <p class="sec-sub-sm sr">시험을 마치면 AI가 즉시 채점하고, 어디가 약한지,<br>다음에 뭘 공부할지까지 알려줍니다.</p>
+
+            <div class="result-card sr">
+                <div class="result-head">
+                    <div class="result-left">
+                        <span class="score-num">62</span><span class="score-of">/100</span>
+                        <span class="result-pill">합격 가능성 높음</span>
+                    </div>
+                    <div class="result-meta">응시일 2026.04.03 &middot; 소요시간 32분 15초</div>
+                </div>
+                <div class="result-tabs">
+                    <button class="rtab active" data-tab="gauge">점수 게이지</button>
+                    <button class="rtab" data-tab="position">점수 위치</button>
+                    <button class="rtab" data-tab="summary">3줄 요약</button>
+                    <button class="rtab" data-tab="area">영역별 결과</button>
+                    <button class="rtab" data-tab="detail">문제별 학습</button>
+                </div>
+                <div class="rtab-panels">
+                    <div class="rtab-panel active" id="p-gauge">
+                        <div class="gauge-wrap">
+                            <div class="gauge-track"><div class="gauge-fill" style="width:62%"></div><div class="gauge-mark" style="left:70%"><span>합격선 70</span></div></div>
+                            <div class="gauge-nums"><span>0</span><span class="gauge-cur">62점</span><span>100</span></div>
+                        </div>
+                        <div class="insight-box">
+                            <strong>합격까지 단 8점</strong>
+                            <p>취약 영역인 조건부 서식만 보완하면 안정권에 진입할 수 있습니다.</p>
                         </div>
                     </div>
-                    <div class="team-card reveal">
-                        <div class="team-avatar">S</div>
-                        <div class="team-role">Tech Leader</div>
-                        <h3>Sally</h3>
-                        <p class="team-quote">"AI가 학습자에게 실질적으로 도움이 되려면 어떤 설계가 필요한지 연구합니다."</p>
-                        <div class="team-details">
-                            <span>성균관대 교수 (인공지능)</span>
-                            <span>인공지능 논문 30여 편</span>
+                    <div class="rtab-panel" id="p-position">
+                        <div class="insight-box"><strong>상위 38% 위치</strong><p>현재 응시자 평균 55점 대비 7점 높습니다. 합격선까지 8점 남았습니다.</p></div>
+                    </div>
+                    <div class="rtab-panel" id="p-summary">
+                        <div class="sum-list">
+                            <div class="sum-row"><span class="dot green"></span>함수 활용 영역 만점 (20/20)</div>
+                            <div class="sum-row"><span class="dot red"></span>조건부 서식 영역 가장 취약 (5/20)</div>
+                            <div class="sum-row"><span class="dot violet"></span>조건부 서식 집중 보완 시 합격 가능성 90% 이상</div>
                         </div>
                     </div>
-                    <div class="team-card reveal">
-                        <div class="team-avatar">B</div>
-                        <div class="team-role">CMO</div>
-                        <h3>Brian</h3>
-                        <p class="team-quote">"좋은 서비스가 더 많은 수험생에게 닿을 수 있도록 시장을 만듭니다."</p>
-                        <div class="team-details">
-                            <span>성균관대학교 글로벌 창업대학원 석사</span>
-                            <span>플랫폼 마케팅 13년</span>
+                    <div class="rtab-panel" id="p-area">
+                        <div class="area-rows">
+                            <div class="area-r"><span>함수 활용</span><div class="area-bar"><div class="area-f bg-green" style="width:100%"></div></div><span>20/20</span></div>
+                            <div class="area-r"><span>데이터 관리</span><div class="area-bar"><div class="area-f bg-violet" style="width:75%"></div></div><span>15/20</span></div>
+                            <div class="area-r"><span>차트/매크로</span><div class="area-bar"><div class="area-f bg-violet" style="width:60%"></div></div><span>12/20</span></div>
+                            <div class="area-r"><span>수식/표시형식</span><div class="area-bar"><div class="area-f bg-yellow" style="width:50%"></div></div><span>10/20</span></div>
+                            <div class="area-r"><span>조건부 서식</span><div class="area-bar"><div class="area-f bg-red" style="width:25%"></div></div><span>5/20</span></div>
                         </div>
                     </div>
-                    <div class="team-card reveal">
-                        <div class="team-avatar">J</div>
-                        <div class="team-role">CTO</div>
-                        <h3>James</h3>
-                        <p class="team-quote">"아이디어를 빠르게 제품으로 만들고, 안정적으로 운영하는 일을 합니다."</p>
-                        <div class="team-details">
-                            <span>성균관대학교 글로벌 창업대학원 석사</span>
-                            <span>풀스택 엔지니어 15년</span>
-                        </div>
+                    <div class="rtab-panel" id="p-detail">
+                        <div class="insight-box"><strong>AI 연결 콘텐츠</strong><p>조건부 서식 &rarr; 교재 p.127~135 &middot; 영상 12:30~15:45</p><p>수식/표시형식 &rarr; 교재 p.98~110 &middot; 영상 08:10~11:20</p></div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- ===== Evidence ===== -->
-        <section class="section" id="evidence">
-            <div class="container">
-                <h2 class="heading-2 reveal">기술적 근거.</h2>
-                <div class="evidence-grid">
-                    <div class="evidence-card reveal">
-                        <div class="evidence-tag tag-blue">핵심 논문</div>
-                        <h3>학습 시간 ~30% 단축</h3>
-                        <blockquote>"통합 형식(integrated format)으로 학습 자료를 제시했을 때, 학습시간이 약 30% 감소했다."</blockquote>
-                        <cite>Chandler, P. &amp; Sweller, J. (1991). <em>Cognition and Instruction</em>.</cite>
-                    </div>
-                    <div class="evidence-card reveal">
-                        <div class="evidence-tag tag-violet">특허 출원</div>
-                        <h3>의미 기반 자동 매핑 시스템</h3>
-                        <p class="evidence-patent">출원번호: 10-2026-0000665</p>
-                        <p>AI 자동 매핑 + 전문가 검수(HITL) 파이프라인으로 콘텐츠 품질을 보장합니다.</p>
-                    </div>
+                <div class="result-cta-wrap">
+                    <button class="btn-primary btn-full" onclick="showTrialModal()">나도 진단 받아보기</button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== FAQ ===== -->
-        <section class="section bg-alt" id="faq">
-            <div class="container">
-                <h2 class="heading-2 reveal">자주 묻는 질문.</h2>
-                <div class="faq-list">
-                    <details class="faq-item reveal">
-                        <summary>뉴로런은 어떤 서비스인가요?</summary>
-                        <div class="faq-answer"><p>자격증 학습에서 "탐색시간 제로"를 목표로 하는 AI 학습 플랫폼입니다. 뭘 모르는지 찾고, 교재를 찾고, 다음에 뭘 할지 고민하는 시간을 AI가 대신 해결하여 학습자는 배움에만 집중할 수 있습니다.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>"탐색시간 제로"가 정확히 무슨 뜻인가요?</summary>
-                        <div class="faq-answer"><p>학습 시간의 약 40%가 실제 공부가 아닌 "찾는 행위"에 소모됩니다. 약점 파악, 교재 검색, 영상 탐색, 학습 계획 수립 등을 AI가 자동으로 처리하여 이 탐색 시간을 제로에 가깝게 줄여줍니다.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>어떤 자격증을 지원하나요?</summary>
-                        <div class="faq-answer"><p>현재 컴퓨터활용능력 2급 실기(Excel)를 지원하며, 이후 정보처리기사, 워드프로세서 등으로 확대할 예정입니다.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>AI가 구체적으로 어떤 탐색을 대신하나요?</summary>
-                        <div class="faq-answer"><p>5가지 핵심 탐색을 자동화합니다: (1) 약점 자동 진단 — 오답 패턴 분석으로 취약 영역 즉시 파악, (2) 콘텐츠 자동 연결 — 교재&middot;영상&middot;문제를 AI가 매핑, (3) 최적 시작점 제시, (4) 학습 경로 실시간 설계, (5) 합격 확률 데이터 시각화.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>데이터 보안은 어떻게 관리하나요?</summary>
-                        <div class="faq-answer"><p>소셜 로그인(카카오, 구글)을 통해 인증을 처리하며, 이메일이나 전화번호를 직접 수집하지 않습니다. 결제는 토스페이먼츠, 카카오페이 등 PG사에 위임하여 개인 금융정보를 서버에 저장하지 않습니다.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>모바일에서도 사용할 수 있나요?</summary>
-                        <div class="faq-answer"><p>PWA(프로그레시브 웹 앱) 방식으로 스마트폰 브라우저에서 바로 사용할 수 있습니다. 오답 복습, 플래시카드, 학습 리마인더 알림 등 모바일에 최적화된 기능을 지원합니다.</p></div>
-                    </details>
-                    <details class="faq-item reveal">
-                        <summary>서비스 출시 일정은 언제인가요?</summary>
-                        <div class="faq-answer"><p>2026년 7월 정식 버전 출시를 목표로 하고 있습니다. 지금 미리 체험 예약을 하시면 오픈 시 가장 먼저 초대해 드립니다.</p></div>
-                    </details>
+    <!-- ===== COMPARISON ===== -->
+    <section class="sec-comp" id="comparison">
+        <div class="container">
+            <p class="sec-eyebrow sr">비교</p>
+            <h2 class="sec-h2 sr">탐색시간, 얼마나 줄어들까?</h2>
+            <p class="sec-sub sr">같은 5시간, 전혀 다른 밀도.</p>
+
+            <div class="comp-table sr">
+                <div class="comp-row comp-head">
+                    <div class="comp-c c-label">학습 단계</div>
+                    <div class="comp-c c-old">기존 방식</div>
+                    <div class="comp-c c-new">NeuroLearn</div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-c c-label">약점 파악</div>
+                    <div class="comp-c c-old"><s>전 범위 반복 50분</s></div>
+                    <div class="comp-c c-new">AI 즉시 진단 0.8초</div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-c c-label">교재 연결</div>
+                    <div class="comp-c c-old"><s>목차 탐색 30분</s></div>
+                    <div class="comp-c c-new">자동 매핑 0초</div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-c c-label">영상 연결</div>
+                    <div class="comp-c c-old"><s>타임라인 탐색 20분</s></div>
+                    <div class="comp-c c-new">정확한 시점 연결</div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-c c-label">학습 계획</div>
+                    <div class="comp-c c-old"><s>매일 고민 15분</s></div>
+                    <div class="comp-c c-new">AI 자동 생성</div>
+                </div>
+                <div class="comp-row">
+                    <div class="comp-c c-label">합격 예측</div>
+                    <div class="comp-c c-old"><s>불안감 5분</s></div>
+                    <div class="comp-c c-new">데이터 기반 확률</div>
+                </div>
+                <div class="comp-row comp-total">
+                    <div class="comp-c c-label">하루 탐색시간</div>
+                    <div class="comp-c c-old">~2시간</div>
+                    <div class="comp-c c-new"><strong>~0분</strong></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== CTA ===== -->
-        <section class="section cta-section">
-            <div class="container">
-                <div class="cta-box reveal">
-                    <h2>찾지 마세요.<br>바로 배우세요.</h2>
-                    <p>AI가 약점을 진단하고, 콘텐츠를 연결하고, 경로를 설계합니다.<br>당신은 앉는 순간, 바로 배움에 들어갑니다.</p>
-                    <button class="btn-white btn-lg" onclick="showTrialModal()">3분 체험 시작하기</button>
-                    <span class="cta-note">회원가입 없이 무료 체험 가능</span>
+    <!-- ===== TEAM ===== -->
+    <section class="sec-team" id="team">
+        <div class="container">
+            <p class="sec-eyebrow sr">팀</p>
+            <h2 class="sec-h2 sr">만드는 사람들.</h2>
+            <div class="team-grid">
+                <div class="team-card sr" data-delay="0">
+                    <div class="tc-role">CPO</div>
+                    <h3 class="tc-name">Bobby</h3>
+                    <p class="tc-quote">"20년간 플랫폼을 만들며 '사용자가 진짜 쓰는 서비스'를 고민해왔습니다."</p>
+                    <div class="tc-divider"></div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-3.14 1.346L10 11.148l6.606-2.832a1 1 0 000-1.84l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 15.96v-4.5l2.7 1.157a1 1 0 00.788 0L13 11.46v4.5a9.026 9.026 0 00-2.3.613zM14 12.5v4.5a8.962 8.962 0 012-.6v-3.3l-2 .9z"/></svg>성균관대학교 글로벌 창업대학원 석사</div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>AI 기반 플랫폼 서비스 기획/운영 20년</div>
+                </div>
+                <div class="team-card sr" data-delay="0.1">
+                    <div class="tc-role">Tech Leader</div>
+                    <h3 class="tc-name">Sally</h3>
+                    <p class="tc-quote">"AI가 학습자에게 실질적으로 도움이 되려면 어떤 설계가 필요한지 연구합니다."</p>
+                    <div class="tc-divider"></div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-3.14 1.346L10 11.148l6.606-2.832a1 1 0 000-1.84l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 15.96v-4.5l2.7 1.157a1 1 0 00.788 0L13 11.46v4.5a9.026 9.026 0 00-2.3.613zM14 12.5v4.5a8.962 8.962 0 012-.6v-3.3l-2 .9z"/></svg>성균관대 교수 (인공지능)</div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>인공지능 논문 30여 편</div>
+                </div>
+                <div class="team-card sr" data-delay="0.2">
+                    <div class="tc-role">CMO</div>
+                    <h3 class="tc-name">Brian</h3>
+                    <p class="tc-quote">"좋은 서비스가 더 많은 수험생에게 닿을 수 있도록 시장을 만듭니다."</p>
+                    <div class="tc-divider"></div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-3.14 1.346L10 11.148l6.606-2.832a1 1 0 000-1.84l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 15.96v-4.5l2.7 1.157a1 1 0 00.788 0L13 11.46v4.5a9.026 9.026 0 00-2.3.613zM14 12.5v4.5a8.962 8.962 0 012-.6v-3.3l-2 .9z"/></svg>성균관대학교 글로벌 창업대학원 석사</div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>플랫폼 마케팅 13년</div>
+                </div>
+                <div class="team-card sr" data-delay="0.3">
+                    <div class="tc-role">CTO</div>
+                    <h3 class="tc-name">James</h3>
+                    <p class="tc-quote">"아이디어를 빠르게 제품으로 만들고, 안정적으로 운영하는 일을 합니다."</p>
+                    <div class="tc-divider"></div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838l-3.14 1.346L10 11.148l6.606-2.832a1 1 0 000-1.84l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zm5.99 7.176A9.026 9.026 0 007 15.96v-4.5l2.7 1.157a1 1 0 00.788 0L13 11.46v4.5a9.026 9.026 0 00-2.3.613zM14 12.5v4.5a8.962 8.962 0 012-.6v-3.3l-2 .9z"/></svg>성균관대학교 글로벌 창업대학원 석사</div>
+                    <div class="tc-info"><svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>풀스택 엔지니어 15년</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- ===== EVIDENCE ===== -->
+    <section class="sec-evidence" id="evidence">
+        <div class="container">
+            <p class="sec-eyebrow sr">근거</p>
+            <h2 class="sec-h2 sr">기술적 근거.</h2>
+            <div class="evi-grid">
+                <div class="evi-card sr" data-delay="0">
+                    <span class="evi-tag blue">핵심 논문</span>
+                    <h3>학습 시간 ~30% 단축</h3>
+                    <blockquote>"통합 형식(integrated format)으로 학습 자료를 제시했을 때, 학습시간이 약 30% 감소했다."</blockquote>
+                    <cite>Chandler, P. &amp; Sweller, J. (1991). <em>Cognition and Instruction</em>.</cite>
+                </div>
+                <div class="evi-card sr" data-delay="0.15">
+                    <span class="evi-tag violet">특허 출원</span>
+                    <h3>의미 기반 자동 매핑 시스템</h3>
+                    <p class="evi-patent">출원번호: 10-2026-0000665</p>
+                    <p>AI 자동 매핑 + 전문가 검수(HITL) 파이프라인으로 콘텐츠 품질을 보장합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="sec-faq" id="faq">
+        <div class="container">
+            <p class="sec-eyebrow sr">FAQ</p>
+            <h2 class="sec-h2 sr">자주 묻는 질문.</h2>
+            <div class="faq-list">
+                <details class="faq-item sr"><summary>뉴로런은 어떤 서비스인가요?</summary><div class="faq-a"><p>자격증 학습에서 "탐색시간 제로"를 목표로 하는 AI 학습 플랫폼입니다. 뭘 모르는지 찾고, 교재를 찾고, 다음에 뭘 할지 고민하는 시간을 AI가 대신 해결하여 학습자는 배움에만 집중할 수 있습니다.</p></div></details>
+                <details class="faq-item sr"><summary>"탐색시간 제로"가 정확히 무슨 뜻인가요?</summary><div class="faq-a"><p>학습 시간의 약 40%가 실제 공부가 아닌 "찾는 행위"에 소모됩니다. 약점 파악, 교재 검색, 영상 탐색, 학습 계획 수립 등을 AI가 자동으로 처리하여 이 탐색 시간을 제로에 가깝게 줄여줍니다.</p></div></details>
+                <details class="faq-item sr"><summary>어떤 자격증을 지원하나요?</summary><div class="faq-a"><p>현재 컴퓨터활용능력 2급 실기(Excel)를 지원하며, 이후 정보처리기사, 워드프로세서 등으로 확대할 예정입니다.</p></div></details>
+                <details class="faq-item sr"><summary>AI가 구체적으로 어떤 탐색을 대신하나요?</summary><div class="faq-a"><p>5가지 핵심 탐색을 자동화합니다: (1) 약점 자동 진단 (2) 콘텐츠 자동 연결 (3) 최적 시작점 제시 (4) 학습 경로 실시간 설계 (5) 합격 확률 데이터 시각화.</p></div></details>
+                <details class="faq-item sr"><summary>데이터 보안은 어떻게 관리하나요?</summary><div class="faq-a"><p>소셜 로그인(카카오, 구글)을 통해 인증을 처리하며, 이메일이나 전화번호를 직접 수집하지 않습니다. 결제는 토스페이먼츠, 카카오페이 등 PG사에 위임하여 개인 금융정보를 서버에 저장하지 않습니다.</p></div></details>
+                <details class="faq-item sr"><summary>모바일에서도 사용할 수 있나요?</summary><div class="faq-a"><p>PWA(프로그레시브 웹 앱) 방식으로 스마트폰 브라우저에서 바로 사용할 수 있습니다. 오답 복습, 플래시카드, 학습 리마인더 알림 등 모바일에 최적화된 기능을 지원합니다.</p></div></details>
+                <details class="faq-item sr"><summary>서비스 출시 일정은 언제인가요?</summary><div class="faq-a"><p>2026년 7월 정식 버전 출시를 목표로 하고 있습니다. 지금 미리 체험 예약을 하시면 오픈 시 가장 먼저 초대해 드립니다.</p></div></details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOTTOM CTA ===== -->
+    <section class="sec-cta">
+        <div class="container">
+            <div class="cta-box sr">
+                <h2>찾지 마세요.<br>바로 배우세요.</h2>
+                <p>AI가 약점을 진단하고, 콘텐츠를 연결하고, 경로를 설계합니다.<br>당신은 앉는 순간, 바로 배움에 들어갑니다.</p>
+                <button class="btn-white btn-lg" onclick="showTrialModal()">3분 체험 시작하기</button>
+                <span class="cta-note">회원가입 없이 무료 체험 가능</span>
+            </div>
+        </div>
+    </section>
 
     </main>
 
-    <!-- ===== Footer ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container footer-inner">
             <div class="footer-left">
-                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img footer-logo" width="100" height="28">
-                <span class="footer-copy">&copy; 2026 NeuroLearn. All rights reserved.</span>
+                <img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img footer-logo">
+                <span>&copy; 2026 NeuroLearn. All rights reserved.</span>
             </div>
-            <div class="footer-right">
+            <div class="footer-links">
                 <a href="#">이용약관</a>
                 <a href="#">개인정보처리방침</a>
-                <a href="#" onclick="showContactModal(); return false;">문의하기</a>
+                <a href="#" onclick="showContactModal();return false;">문의하기</a>
             </div>
         </div>
     </footer>
 
-    <!-- ===== Trial Modal ===== -->
+    <!-- ===== TRIAL MODAL ===== -->
     <div id="trialModal" class="modal-overlay" role="dialog" aria-modal="true">
         <div class="modal-box">
             <button class="modal-x" onclick="closeTrialModal()" aria-label="닫기">&times;</button>
-            <div class="modal-badge-pill">2026년 7월 오픈 예정</div>
+            <div class="modal-pill">2026년 7월 오픈 예정</div>
             <h3>미리 체험 예약하기</h3>
             <p>오픈과 동시에 가장 먼저 초대해 드립니다.<br>이메일을 남겨주세요!</p>
             <form class="modal-form" onsubmit="submitReservation(event)">
                 <input type="email" id="reserveEmail" placeholder="이메일 주소를 입력하세요" required autocomplete="email">
-                <button type="submit" class="btn-violet btn-block">예약하기</button>
+                <button type="submit" class="btn-primary btn-full">예약하기</button>
             </form>
-            <span class="modal-small">스팸 없이, 오픈 소식만 전해드립니다.</span>
+            <span class="modal-note">스팸 없이, 오픈 소식만 전해드립니다.</span>
         </div>
     </div>
 
-    <!-- ===== Contact Modal ===== -->
+    <!-- ===== CONTACT MODAL ===== -->
     <div id="contactModal" class="modal-overlay" role="dialog" aria-modal="true">
         <div class="modal-box">
             <button class="modal-x" onclick="closeContactModal()" aria-label="닫기">&times;</button>
             <h3>문의하기</h3>
             <p>궁금하신 점이 있으면 언제든 연락해 주세요.</p>
             <div class="contact-email-box">ai.nomad@neurolearn.co.kr</div>
-            <button class="btn-outline btn-block" onclick="copyEmail()">이메일 복사하기</button>
-            <div class="contact-mails">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer">Gmail</a>
-                <a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer">Outlook</a>
-                <a href="mailto:ai.nomad@neurolearn.co.kr">기본 메일</a>
-            </div>
+            <button class="btn-outline btn-full" onclick="copyEmail()">이메일 복사하기</button>
+            <div class="contact-links"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer">Gmail</a><a href="https://outlook.live.com/mail/0/deeplink/compose?to=ai.nomad@neurolearn.co.kr" target="_blank" rel="noopener noreferrer">Outlook</a><a href="mailto:ai.nomad@neurolearn.co.kr">기본 메일</a></div>
         </div>
     </div>
 
-    <!-- Toast -->
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
     <script src="script.js"></script>
 </body>
-
 </html>
