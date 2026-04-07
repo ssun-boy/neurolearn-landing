@@ -1,6 +1,8 @@
 /* ============ RESET ============ */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+::selection{background:var(--v500);color:#fff}
+::-moz-selection{background:var(--v500);color:#fff}
 
 /* ============ TOKENS (Tailwind-exact) ============ */
 :root{
@@ -100,7 +102,7 @@ body.dark .header{background:rgba(0,0,0,.85)}
 .header-left{display:flex;align-items:center;gap:10px}
 .logo{display:flex;align-items:center;gap:8px;text-decoration:none}
 .logo-img{height:32px;width:auto;object-fit:contain}
-body.dark .logo-img{filter:brightness(0) invert(1)}
+body.dark .logo-img{filter:invert(1) hue-rotate(180deg);mix-blend-mode:screen}
 .beta-badge{
   font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
   color:var(--v600);background:var(--v50);
@@ -166,7 +168,7 @@ body.dark .grad-text{
 }
 
 /* ============ PAIN (stacked cards) ============ */
-.pain-list{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto 32px}
+.pain-list{display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto 32px}
 .pain-card{
   display:grid;grid-template-columns:1.4fr 1.6fr .7fr;
   background:var(--card);border:1px solid var(--bdr);border-radius:24px;
@@ -197,7 +199,7 @@ body.dark .pain-total{background:var(--s200);color:var(--s900)}
 }
 
 /* ============ PIPELINE ============ */
-.pipe-list{display:flex;flex-direction:column;gap:12px;max-width:760px;margin:0 auto}
+.pipe-list{display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto}
 .pipe-card{
   display:flex;align-items:center;gap:20px;
   background:var(--card);border:1px solid var(--bdr);border-radius:24px;
@@ -309,7 +311,7 @@ body.dark .position-bar{background:rgba(255,255,255,.08)}
 .result-cta{padding:16px 32px 32px}
 
 /* ============ COMPARISON ============ */
-.comp-wrap{max-width:760px;margin:0 auto;border:1px solid var(--bdr);border-radius:24px;overflow:hidden}
+.comp-wrap{max-width:760px;margin:0 auto;border:1px solid var(--bdr);border-radius:16px;overflow:hidden}
 .comp-row{display:grid;grid-template-columns:1.5fr 1fr 1fr;border-bottom:1px solid var(--bdr)}
 .comp-row:last-child{border-bottom:none}
 .comp-head{background:var(--bg2)}
@@ -317,7 +319,8 @@ body.dark .position-bar{background:rgba(255,255,255,.08)}
 .comp-c{padding:16px 20px;font-size:14px;display:flex;align-items:center;gap:10px}
 .c-step{font-weight:600}
 .c-old{color:var(--t3)}
-.c-old s{text-decoration-color:var(--t3)}
+.c-old s{text-decoration-color:var(--s300)}
+body.dark .c-old s{text-decoration-color:var(--s700)}
 .c-new{color:var(--accent);font-weight:600}
 .comp-num{
   flex-shrink:0;width:24px;height:24px;border-radius:50%;
@@ -326,12 +329,13 @@ body.dark .position-bar{background:rgba(255,255,255,.08)}
 }
 body.dark .comp-num{background:rgba(139,92,246,.15);color:var(--v400)}
 .comp-total{background:var(--s900);color:#fff}
-body.dark .comp-total{background:rgba(255,255,255,.08)}
-.comp-total .c-step{color:#fff}
+body.dark .comp-total{background:rgba(255,255,255,.1)}
+.comp-total .c-step{color:#fff;font-weight:900}
 body.dark .comp-total .c-step{color:var(--t1)}
 .comp-total .c-old{color:var(--s400)}
-.comp-total .c-new{color:var(--v400)}
+.comp-total .c-new{color:var(--v400);font-weight:900}
 .comp-total .c-new strong{font-size:20px}
+.comp-total .comp-c{padding:20px 20px;font-size:16px}
 
 @media(max-width:480px){.comp-c{padding:12px 14px;font-size:13px}.comp-num{width:20px;height:20px;font-size:10px}}
 
@@ -346,7 +350,7 @@ body.dark .team-card{background:rgba(255,255,255,.05)}
 .tc-role{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--v600);margin-bottom:8px}
 body.dark .tc-role{color:var(--v400)}
 .tc-name{font-size:24px;font-weight:800;margin-bottom:12px}
-.tc-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:20px;min-height:72px}
+.tc-desc{font-size:14px;color:var(--t2);line-height:1.6;margin-bottom:24px;min-height:72px}
 .tc-creds{border-top:1px solid var(--bdr);padding-top:16px;display:flex;flex-direction:column;gap:8px}
 body.dark .tc-creds{border-color:rgba(255,255,255,.05)}
 .tc-cred{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--t3);line-height:1.4}
@@ -381,11 +385,15 @@ body.dark .evi-tag.violet{color:var(--v400);background:rgba(139,92,246,.1)}
 .evi-card h3{font-size:22px;font-weight:800;margin-bottom:16px}
 .evi-card blockquote{
   font-size:16px;color:var(--t2);line-height:1.7;
-  border-left:4px solid var(--blue);padding-left:24px;margin-bottom:16px;font-style:italic;
+  border-left:4px solid var(--blue);padding-left:24px;margin-bottom:24px;font-style:italic;
 }
 .evi-card cite{font-size:13px;color:var(--t3);font-style:normal}
-.evi-code{font-size:13px;color:var(--t3);margin-bottom:8px;font-family:'Courier New',monospace}
-.evi-card>p:last-child{font-size:14px;color:var(--t2);line-height:1.6}
+.evi-patent-box{
+  background:var(--white);border-radius:16px;padding:24px;margin-top:16px;
+}
+body.dark .evi-patent-box{background:rgba(0,0,0,.4)}
+.evi-code{font-size:14px;font-weight:700;color:var(--t2);margin-bottom:8px;font-family:'Courier New',monospace}
+.evi-patent-box p:last-child{font-size:14px;color:var(--t2);line-height:1.6}
 @media(max-width:640px){.evi-grid{grid-template-columns:1fr}}
 
 /* ============ FAQ (non-collapsible) ============ */
@@ -396,7 +404,7 @@ body.dark .evi-tag.violet{color:var(--v400);background:rgba(139,92,246,.1)}
 }
 body.dark .faq-card{background:rgba(255,255,255,.05)}
 .faq-card:hover{border-color:var(--v400)}
-.faq-card h3{font-size:18px;font-weight:700;margin-bottom:12px}
+.faq-card h3{font-size:20px;font-weight:700;margin-bottom:16px}
 .faq-card p{font-size:14px;color:var(--t2);line-height:1.7}
 
 /* ============ CTA ============ */
@@ -418,6 +426,7 @@ body.dark .faq-card{background:rgba(255,255,255,.05)}
 body.dark .footer{background:var(--black)}
 .footer-inner{display:flex;flex-direction:column;gap:16px}
 .footer-logo-link{display:inline-block}
+.footer .logo-img{height:28px}
 .footer-links{display:flex;gap:20px}
 .footer-links a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .15s}
 .footer-links a:hover{color:var(--accent)}
