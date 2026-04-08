@@ -1,0 +1,18 @@
+# Brand asset source files (not needed in deployment)
+NeuroLearn_standard.jpg
+neurolearn_standard_white_wallpaper.jpg
+neurolearn_standard_white_wallpaper.png
+new_뉴로런.jpg
+new_뉴로런_black_wall.jpg
+new_뉴로런_로고.zip
+명함3개.zip
+
+# Development files
+node_modules
+scripts/
+*.md
+tests/
+
+# Local config
+.claude/
+docs/
