@@ -19,6 +19,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "http-server": "^14.1.1"
+        "http-server": "^14.1.1",
+        "jest": "^30.3.0",
+        "jest-environment-jsdom": "^30.3.0"
     }
 }
