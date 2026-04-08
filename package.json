@@ -4,12 +4,23 @@
     "description": "NeuroLearn Landing Page",
     "scripts": {
         "dev": "npx http-server -p 8080 -c-1",
-        "start": "npm run dev"
+        "start": "npm run dev",
+        "generate:images": "node scripts/generate-images.mjs",
+        "test": "node --experimental-vm-modules node_modules/.bin/jest",
+        "test:watch": "node --experimental-vm-modules node_modules/.bin/jest --watch"
+    },
+    "jest": {
+        "testEnvironment": "jsdom",
+        "testMatch": [
+            "**/tests/**/*.test.js"
+        ]
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "http-server": "^14.1.1"
+        "http-server": "^14.1.1",
+        "jest": "^30.3.0",
+        "jest-environment-jsdom": "^30.3.0"
     }
 }
