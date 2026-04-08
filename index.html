@@ -66,7 +66,7 @@
     </section>
 
     <!-- PROBLEM -->
-    <section class="section bg-sub" id="problem">
+    <section class="section" id="problem">
         <div class="container">
             <h2 class="h2 sr">이런 경험, 없으셨나요?</h2>
             <p class="sub sr">하루 5시간 공부 중 2시간은 '탐색'에 소모됩니다.</p>
@@ -367,13 +367,13 @@
     </section>
 
     <!-- BOTTOM CTA -->
-    <section class="section cta-sec">
+    <section class="section cta-sec-flat">
         <div class="container">
-            <h2 class="h2 sr" style="color:#fff">찾지 마세요.<br>바로 배우세요.</h2>
-            <p class="cta-desc sr">AI가 약점을 진단하고, 콘텐츠를 연결하고, 경로를 설계합니다.<br>당신은 앉는 순간, 바로 배움에 들어갑니다.</p>
+            <h2 class="h2 sr">찾지 마세요.<br>바로 배우세요.</h2>
+            <p class="cta-desc-flat sr">AI가 약점을 진단하고, 콘텐츠를 연결하고, 경로를 설계합니다.<br>당신은 앉는 순간, 바로 배움에 들어갑니다.</p>
             <div class="sr" data-d="0.2">
-                <button class="btn-white" onclick="showTrialModal()">3분 체험 시작하기</button>
-                <p class="cta-note">회원가입 없이 무료 체험 가능</p>
+                <button class="btn-violet" onclick="showTrialModal()">3분 체험 시작하기</button>
+                <p class="cta-note-flat">회원가입 없이 무료 체험 가능</p>
             </div>
         </div>
     </section>
@@ -385,12 +385,11 @@
         <div class="footer-inner container">
             <a href="/" class="footer-logo-link"><img src="assets/images/neurolearn-logo.png" alt="NeuroLearn" class="logo-img"></a>
             <div class="footer-links">
-                <a href="#">이용약관</a>
-                <a href="#">개인정보처리방침</a>
-                <a href="#" onclick="showContactModal();return false;">문의하기</a>
-                <a href="#">제작자</a>
+                <a href="/terms">이용약관</a>
+                <a href="/privacy">개인정보처리방침</a>
             </div>
-            <p class="footer-copy">&copy; 2026 NeuroLearn. All rights reserved.</p>
+            <p class="footer-contact" onclick="showContactModal()">문의하기</p>
+            <p class="footer-copy">&copy; 2026 NeuroLearn. All rights reserved. &middot; <a href="#" class="footer-creator">제작자</a></p>
         </div>
     </footer>
 

@@ -408,29 +408,29 @@ body.dark .faq-card{background:rgba(255,255,255,.05)}
 .faq-card p{font-size:14px;color:var(--t2);line-height:1.7}
 
 /* ============ CTA ============ */
-.cta-sec{
-  background:linear-gradient(135deg,var(--v600),var(--v900));
-  text-align:center;color:#fff;position:relative;overflow:hidden;
+.cta-sec-flat{
+  background:var(--bg);text-align:center;position:relative;overflow:hidden;
+  border-top:1px solid var(--bdr);
 }
-.cta-sec::before{
-  content:'';position:absolute;top:-30%;right:-15%;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none;
-}
-.cta-sec .h2{position:relative}
-.cta-desc{font-size:17px;opacity:.85;line-height:1.7;margin-bottom:40px;position:relative}
-.cta-note{display:block;margin-top:16px;font-size:13px;opacity:.6;position:relative}
-@media(max-width:480px){.cta-sec{padding:96px 0}.cta-sec .h2{font-size:28px}}
+body.dark .cta-sec-flat{background:var(--black)}
+.cta-desc-flat{font-size:17px;color:var(--t2);line-height:1.7;margin-bottom:40px;text-align:center}
+.cta-note-flat{display:block;margin-top:16px;font-size:13px;color:var(--t3);text-align:center}
+@media(max-width:480px){.cta-sec-flat{padding:96px 0}.cta-sec-flat .h2{font-size:28px}}
 
 /* ============ FOOTER ============ */
 .footer{background:var(--bg);border-top:1px solid var(--bdr);padding:32px 0}
 body.dark .footer{background:var(--black)}
-.footer-inner{display:flex;flex-direction:column;gap:16px}
+.footer-inner{display:flex;flex-direction:column;gap:12px}
 .footer-logo-link{display:inline-block}
 .footer .logo-img{height:28px}
 .footer-links{display:flex;gap:20px}
 .footer-links a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .15s}
 .footer-links a:hover{color:var(--accent)}
+.footer-contact{font-size:13px;color:var(--t3);cursor:pointer;transition:color .15s}
+.footer-contact:hover{color:var(--accent)}
 .footer-copy{font-size:13px;color:var(--t3)}
+.footer-creator{color:var(--t3);text-decoration:none;transition:color .15s}
+.footer-creator:hover{color:var(--accent)}
 @media(max-width:480px){.footer-inner{align-items:center;text-align:center}}
 
 /* ============ FLOATING MOBILE CTA ============ */
