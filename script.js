@@ -28,7 +28,7 @@ function submitReservation(e){
   var p=box.querySelector('p');
   var form=box.querySelector('.modal-form');
   var note=box.querySelector('.modal-note');
-  if(pill){pill.textContent='예약 완료!';pill.style.background='linear-gradient(135deg,#22C55E,#34D399)';}
+  if(pill){pill.textContent='예약 완료!';pill.style.background='var(--secondary)';}
   if(h3)h3.textContent='감사합니다!';
   if(p){var d=document.createElement('div');d.textContent=email;p.innerHTML='오픈 시 <strong>'+d.innerHTML+'</strong>으로<br>가장 먼저 초대해 드리겠습니다.';}
   if(form)form.style.display='none';
